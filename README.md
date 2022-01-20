@@ -67,29 +67,6 @@ Start the server
   npm run nodemon
 ```
 
-### Top-Level Scripts
-
-```json
-  "scripts": {
-    "nodemon": "npm run nodemon --stream",
-    "nodemon:arteri": "lerna run --scope arteri-fe nodemon --stream",
-    "nodemon:insura": "lerna run nodemon --scope insura-fe --stream",
-    "build:staging": "lerna run build:staging",
-    "build:staging-arteri": "lerna run --scope arteri-fe build:staging",
-    "build:staging-insura": "lerna run --scope insura-fe build:staging",
-    "test:unit": "lerna run test:unit"
-  }
-
-```
-
-- `nodemon`: Run all the apps locally at once.
-- `nodemon:arteri`: Run the Arteri user front facing app locally.
-- `nodemon:insura`: Run the Insura user front facing app locally.
-- `build:staging`: Build all the apps for staging environment.
-- `build:staging-arteri`: Build the Arteri user facing app for staging environment.
-- `build:staging-insura`: Build the Insura user facing app for staging environment.
-
-
 ### Code Standards
 - Folder names should be in `camelCase` e.g `components, getStarted, auth`
 - Vue files should be in `PascalCase` e.g `Home.vue, TheFooter.vue, BaseInput.vue`
