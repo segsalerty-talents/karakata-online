@@ -70,7 +70,7 @@
             @focus="v$.password.$reset()"
           />
           <c-text
-            mt="2"
+            mt="3"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
             color="red.400"
             v-if="v$.password.$error"
