@@ -22,7 +22,7 @@
           >
             Email Address or username</c-form-label
           >
-          <c-input
+          <c-input v-model="name"
             p="5"
             id="email_username"
             box-shadow="md"
@@ -34,6 +34,11 @@
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
           />
+          <small
+              :class="{ 'red.400': v$.name.$error }"
+              v-if="v$.name.$error"
+              >Email or username is required</small
+            >
         </c-form-control>
         <c-form-control mb="6">
           <c-form-label
@@ -43,7 +48,7 @@
           >
             Password</c-form-label
           >
-          <c-input
+          <c-input v-model="password"
             p="5"
             id="password"
             type="password"
@@ -56,6 +61,11 @@
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
           />
+          <small
+              :class="{ 'red.400': v$.password.$error }"
+              v-if="v$.password.$error"
+              >Password is required</small
+            >
         </c-form-control>
         <c-flex align="center" justify="space-between">
           <c-box>
@@ -74,6 +84,7 @@
           </c-box>
         </c-flex>
         <c-button
+        @click="submit"
           bg="#E27253"
           color="#ffffff"
           :font-size="{ base: '14px', md: '16px', lg: '18px' }"
@@ -106,8 +117,31 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+
 export default {
-  name: 'SignIn'
+  name: 'signIn',
+  setup: () => ({ v$: useVuelidate() }),
+  data () {
+    return {
+      name: '',
+      password: ''
+    }
+  },
+  validations () {
+    return {
+      name: { required },
+      password: { required }
+    }
+  },
+  methods: {
+    submit () {
+      if (this.v$.$invalid) {
+        this.v$.$validate()
+      }
+    }
+  }
 }
 </script>
 
