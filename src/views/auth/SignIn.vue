@@ -22,7 +22,8 @@
           >
             Email Address or username</c-form-label
           >
-          <c-input v-model="name"
+          <c-input
+            v-model="name"
             p="5"
             id="email_username"
             box-shadow="md"
@@ -33,12 +34,16 @@
             mt="1"
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
+            @blur="v$.name.$touch()"
+            @focus="v$.name.$reset()"
           />
-          <small
-              :class="{ 'red.400': v$.name.$error }"
-              v-if="v$.name.$error"
-              >Email or username is required</small
-            >
+          <c-text
+            mt="2"
+            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            color="red.400"
+            v-if="v$.name.$error"
+            >Email or username is required</c-text
+          >
         </c-form-control>
         <c-form-control mb="6">
           <c-form-label
@@ -48,7 +53,8 @@
           >
             Password</c-form-label
           >
-          <c-input v-model="password"
+          <c-input
+            v-model="password"
             p="5"
             id="password"
             type="password"
@@ -60,12 +66,16 @@
             mt="1"
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
+            @blur="v$.password.$touch()"
+            @focus="v$.password.$reset()"
           />
-          <small
-              :class="{ 'red.400': v$.password.$error }"
-              v-if="v$.password.$error"
-              >Password is required</small
-            >
+          <c-text
+            mt="2"
+            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            color="red.400"
+            v-if="v$.password.$error"
+            >Password is required</c-text
+          >
         </c-form-control>
         <c-flex align="center" justify="space-between">
           <c-box>
@@ -84,7 +94,7 @@
           </c-box>
         </c-flex>
         <c-button
-        @click="submit"
+          @click="submit"
           bg="#E27253"
           color="#ffffff"
           :font-size="{ base: '14px', md: '16px', lg: '18px' }"
