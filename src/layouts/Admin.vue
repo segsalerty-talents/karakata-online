@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <c-box position="relative">
     <!-- <sidebar /> -->
+    <sidebar />
     <div class="relative md:ml-64 bg-blueGray-100">
       <!-- <admin-navbar /> -->
       <!-- <header-stats /> -->
@@ -9,13 +10,15 @@
         <!-- <footer-admin /> -->
       </div>
     </div>
-  </div>
+  </c-box>
 </template>
 
 <script>
+import Sidebar from '@/components/TheSidebar'
 export default {
   name: 'admin-layout',
   components: {
+    Sidebar
   }
 }
 </script>
