@@ -1,26 +1,42 @@
 <template>
   <c-box
-    position="absolute"
+    :position="{ base: 'fixed', lg: 'absolute' }"
+    :bottom="{ base: 0, lg: 'inherit' }"
     bg="#E27253"
-    h="100vh"
-    w="288px"
+    :h="{ base: '60px', lg: '100vh' }"
+    :w="{ base: '100%', lg:'288px' }"
   >
   <c-flex
-    display="flex"
+    :display="{ base: 'none', lg: 'flex' }"
     mt="30px"
     w="100%"
     justify="center">
     <c-image :src="require('@/assets/img/Logo2.svg')" w="120px" />
   </c-flex>
-  <c-box pr="15px" pl="15px" mt="80px">
-  <c-list styleType="none">
+  <c-box
+    :pr="{ base: '0px', lg: '15px' }"
+    :pl="{ base: '0px', lg: '15px' }"
+    :mt="{ base: '0px', lg: '80px'}"
+    :w="{ base: '100%'}"
+    :h="{ base: '100%', lg: 'auto' }"
+  >
+  <c-list
+    styleType="none"
+    :display="{ base: 'flex',  lg: 'block'}"
+    w="100%"
+    h="100%">
     <template v-for="(item,index) in topLink">
       <c-list-item
+        :display="{ base: 'flex', lg: 'block' }"
+        justifyContent="center"
+        alignItems="center"
         :bg="$route.path === item.url ? '#FFBC9F':''"
         :_hover="{bg: '#FFBC9F'}"
-        p="15px"
-        borderRadius="10px"
+        h="100%"
+        :borderRadius="{ base: '0px', lg: '10px' }"
         :key="index"
+        w="100%"
+        :p="{ base: 0, lg: '15px 0px 15px 15px' }"
       >
         <c-link as="router-link"
           :to="item.url"
@@ -28,13 +44,14 @@
         >
         <c-image
           :src="item.icon"
-          w="25px"
-          mr="15px"
+          w="20px"
+          :mr="{base: 0, lg: '15px' }"
           display="inline-block"
         />
         <c-box
+          :display="{ base: 'none', lg: 'inline-block' }"
           as="span"
-          fontSize="25px"
+          fontSize="18px"
           color="#fff"
           verticalAlign="middle"
           :fontWeight="$route.path === item.url ? 'bold':''"
@@ -64,6 +81,16 @@ export default {
           url: '/admin/sales',
           name: 'Sales',
           icon: require('@/assets/img/users.svg')
+        },
+        {
+          url: '/admin/automation-configuration',
+          name: 'Automation configuration',
+          icon: require('@/assets/img/note-icon.svg')
+        },
+        {
+          url: '/admin/segmentation',
+          name: 'Segmentation',
+          icon: require('@/assets/img/note-icon.svg')
         }
       ]
     }
