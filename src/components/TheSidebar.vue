@@ -1,6 +1,7 @@
 <template>
   <c-box
     :position="{ base: 'fixed', lg: 'absolute' }"
+    :top="{ base: 'inherit', lg: 0 }"
     :bottom="{ base: 0, lg: 'inherit' }"
     bg="#E27253"
     :h="{ base: '60px', lg: '100vh' }"
@@ -84,7 +85,7 @@
     <c-image :src="require('@/assets/img/line.svg')" />
   </c-box>
   <c-box
-    :display="showMenu===true ? 'block':'none'"
+    :display="{ base: showMenu===true ? 'block':'none', lg: 'block' }"
     :position="{ base: 'absolute', lg: 'relative' }"
     right="0"
     :bottom="{ base: '60px', lg: 'auto' }"
