@@ -61,6 +61,18 @@
         </c-link>
       </c-list-item>
     </template>
+    <c-list-item
+      :display="{ base: 'flex', lg: 'none' }"
+      w="100%"
+      justifyContent="center"
+      alignItems="center"
+    >
+     <c-link @click="showMenu=!showMenu">
+        <c-image
+        :src="require('@/assets/img/dots-icon.svg')"
+      />
+     </c-link>
+    </c-list-item>
   </c-list>
   </c-box>
   <c-box
@@ -72,16 +84,22 @@
     <c-image :src="require('@/assets/img/line.svg')" />
   </c-box>
   <c-box
-    :display="{ base: 'none', lg: 'block' }"
+    :display="showMenu===true ? 'block':'none'"
+    :position="{ base: 'absolute', lg: 'relative' }"
+    right="0"
+    :bottom="{ base: '60px', lg: 'auto' }"
+    bg="#E27253"
     :pr="{ base: '0px', lg: '15px' }"
     :pl="{ base: '0px', lg: '15px' }"
     :mt="{ base: '0px', lg: '50px'}"
-    :w="{ base: '100%'}"
-    :h="{ base: '100%', lg: 'auto' }"
+    :w="{ base: '60px', lg: '100%' }"
+    :h="{ base: '100px', lg: 'auto' }"
   >
     <c-list
       styleType="none"
-      :display="{ base: 'flex',  lg: 'block'}"
+      :display="{ base: 'flex', lg:'block' }"
+      justifyContent="space-around"
+      flexDirection="column"
       w="100%"
       h="100%"
     >
@@ -164,7 +182,8 @@ export default {
           name: 'Support',
           icon: require('@/assets/img/help-icon.svg')
         }
-      ]
+      ],
+      showMenu: false
     }
   }
 }
