@@ -11,7 +11,7 @@
     >
       <c-list-item>
         <c-heading as="h3">
-          Dashboard
+          {{ headerTitle }}
         </c-heading>
       </c-list-item>
     </c-list>
@@ -55,3 +55,14 @@
     </c-list>
   </c-flex>
 </template>
+
+<script>
+export default {
+  props: {
+    headerTitle: {
+      type: String,
+      default: 'Dashboard'
+    }
+  }
+}
+</script>
