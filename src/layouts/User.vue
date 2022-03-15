@@ -15,3 +15,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  transition: all .3s ease-in;
+  background: #E27253;
+  border-radius: 10px;
+  color: white;
+}
+</style>
