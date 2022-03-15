@@ -26,7 +26,10 @@
       :display="{ base: 'none', lg: 'block' }">
       <c-input placeholder="Search..." borderRadius="8px"/>
     </c-list-item>
-    <c-list-item pr="1rem" alignSelf="center">
+    <c-list-item
+      pr="1rem" alignSelf="center"
+      :display="{ base: 'none', lg: 'block' }"
+    >
       <c-image
         rounded="full"
         h="40px"
