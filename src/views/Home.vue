@@ -12,7 +12,7 @@
           <c-button class="btn" :w="['104', '204px']" :fontSize="['10px', '20px']" py="20px">Set Up</c-button>
         </c-flex>
       </c-flex>
-      <c-text class="text-center text-primary mx-auto" fontWeight="700" mt="200px" :fontSize="['36px', '50px']" lineHeight="66px" :w="['353px', '778px']" >Creating Customer Engagement <br>and Sales Automation</c-text>
+      <c-text class="text-center text-primary mx-auto" fontWeight="700" mt="200px" :fontSize="['36px', '50px']" lineHeight="66px" :w="['353px', '778px']" >Creating <br class="brnodisplay">Customer <br class="brnodisplay">Engagement <br class="brnobreak">and<br class="brnodisplay"> Sales Automation</c-text>
       <c-text class="font-bold text-center text-seconadry-300 mx-auto" mt="50px" :fontSize="['14px', '22px']" :w="['336px', '786px']" lineHeight="29px" >Karakata provides AI-powered business tools to manage and engage customers and provide seamless business intelligence & leads.</c-text>
       <c-button class="justify-center mx-auto btn" py="40px" :mt="['30px', '100px']" :w="['205px', '300px']" :fontSize="['19px', '26px']">Set Up Now</c-button>
     </div>
@@ -100,8 +100,8 @@
             <a href="https://www.github.com/segsalerty2013/karakata-online" target="_blank" :fontSize="['8px', '12px']">link to public repository</a>
           </c-flex>
           <c-flex class="columnGap" :mt="['20px', '10px']">
-            <c-text class="absolute" :left="['30px', '50px']" :fontSize="['6px', '10px', '16px']">Built by amazing people from Segsalerty talent resources network</c-text>
-            <c-text class="absolute" :right="['30px', '70px']" :fontSize="['6px', '10px', '14px']">Copyright 2021 ©  Karakata. All Rights Reserved</c-text>
+            <c-text class="absolute small-text" :left="['30px', '50px']" :fontSize="['6px', '10px', '16px']">Built by amazing people from Segsalerty talent resources network</c-text>
+            <c-text class="absolute small-text" :right="['30px', '70px']" :fontSize="['6px', '10px', '14px']">Copyright 2021 ©  Karakata. All Rights Reserved</c-text>
           </c-flex>
         </c-flex>
       </c-box>
@@ -137,7 +137,7 @@ export default {
   opacity: 0.7;
   background-image: url('../assets/img/landing.png');
   background-size: cover;
-  background-position: left;
+  background-position: center;
   background-repeat: no-repeat;
   background-color:#FFF8F5;
   height: 850px;
@@ -198,6 +198,26 @@ export default {
 @media screen and (max-width: 991px) and (min-width: 768px) {
   .box {
     width: 458px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .brnodisplay {
+      display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .brnobreak {
+      display: none;
+  }
+}
+@media only screen and (max-width: 368px) {
+  .small-text {
+      font-size: 4px;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .small-text {
+      font-size: 5px;
   }
 }
 </style>
