@@ -12,13 +12,13 @@
           <c-button class="btn" :w="['104', '204px']" :fontSize="['10px', '20px']" py="20px">Set Up</c-button>
         </c-flex>
       </c-flex>
-      <c-text class="text-center text-primary mx-auto" fontWeight="700" mt="200px" :fontSize="['36px', '50px']" lineHeight="66px" :w="['353px', '778px']" >Creating <br class="brnodisplay">Customer <br class="brnodisplay">Engagement <br class="brnobreak">and<br class="brnodisplay"> Sales Automation</c-text>
+      <c-text class="text-center text-primary mx-auto" fontWeight="700" :mt="['55px', '200px']" :fontSize="['36px', '48px']" lineHeight="66px" :w="['353px', '778px']" >Creating <br class="brnodisplay">Customer <br class="brnodisplay">Engagement <br class="brnobreak">and<br class="brnodisplay"> Sales Automation</c-text>
       <c-text class="font-bold text-center text-seconadry-300 mx-auto" mt="50px" :fontSize="['14px', '22px']" :w="['336px', '786px']" lineHeight="29px" >Karakata provides AI-powered business tools to manage and engage customers and provide seamless business intelligence & leads.</c-text>
       <c-button class="justify-center mx-auto btn" py="40px" :mt="['30px', '100px']" :w="['205px', '300px']" :fontSize="['19px', '26px']">Set Up Now</c-button>
     </div>
 
     <!-- second viewport -->
-    <c-box class="" :mt="['100px', '200px']">
+    <c-box class="" :mt="['245px', '200px']">
       <c-text class="second text-center text-secondary-100 mx-auto" :w="['330px', '696px']" fontWeight="800" :fontSize="['20px', '30px']" :lineHeight="['24px', '45px']" mb="100px">Karakata proffers seamless solution for your business through:</c-text>
       <c-box class="mx-auto" :w="['90%', '90%', '80%', '70%']">
         <c-flex class="flex-col rowGap" mt="30px">
@@ -57,7 +57,7 @@
             <c-text class="second custom-text flex text-left text-secondary-300 mx-auto" :display="['flex', 'none']" :mt="['100px', '0px']" :fontSize="['13px', '30px']" fontWeight="500" :w="['283px', '350px', '656px']">People who use karakata are Subject to<br> experience growth, bumper sales and <br>consistency in Business.</c-text>
             <c-text class="flex text-left lg:text-right text-secondary-300 mx-auto" :display="['none', 'flex']" :mt="['100px', '0px']" :fontSize="['13px', '30px']" fontWeight="500" :w="['283px', '350px', '656px']">People who use karakata are Subject to experience growth, bumper sales and <br>high customer retention.</c-text>
             <c-flex class="sm:items-start sm:justify-start lg:items-end lg:justify-end" :ml="['44px', '0px']">
-              <c-button class="btn" mt="30px" :w="['167px', '276px']">
+              <c-button class="btn" mt="30px" :ml="['44px', '0px']" :w="['167px', '276px']">
                 <c-text mr="6px" color="black" :fontSize="['14px', '24px']" >Get Started</c-text>
                 <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.7072 8.15381L2 8.15381" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,14 +70,14 @@
       </c-simple-grid>
     </c-box>
 
-    <!-- getting started -->
+    <!-- how to get started -->
     <c-box>
       <c-flex class="flex-col mx-auto" w="80%">
         <c-flex class="basicColGap" :fontSize="['19px', '36px']" :w="['333px', '602px']" fontWeight="700" lineHeight="54px">
           <c-text class="">How to get started with</c-text>
           <span class="text-primary" >Karakata</span>
         </c-flex>
-        <c-flex>
+        <c-flex class="mx-auto">
           <c-flex :display="['none', 'flex']">
             <c-image :src="started" />
           </c-flex>
@@ -205,7 +205,7 @@ export default {
       display: none;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .brnobreak {
       display: none;
   }
