@@ -39,11 +39,11 @@
         </c-heading>
       </c-box>
       <c-box mt="5">
-          <c-flex :max-width="{base: '100%', md: '60%'}" justify="space-between">
+          <c-flex :max-width="{base: '100%', md: '80%', xl: '50%'}" justify="space-between">
             <c-heading as="h4" size="sm">Input Message</c-heading>
             <c-link>view template</c-link>
           </c-flex>
-          <c-box :max-width="{base: '100%', md: '60%'}" mt="5px">
+          <c-box :max-width="{base: '100%', md: '80%', xl: '50%'}" mt="5px">
            <c-textarea is-invalid placeholder="Here is a sample placeholder" />
            <c-button
               size="lg"
