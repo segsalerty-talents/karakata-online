@@ -6,9 +6,10 @@ import store from './store'
 import './assets/css/tailwind.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Chakra, { CThemeProvider, CReset } from '@chakra-ui/vue'
+import VueCountryCode from 'vue-country-code-select'
 
 Vue.config.productionTip = false
-Vue.use(Chakra)
+Vue.use(Chakra).use(VueCountryCode)
 
 new Vue({
   router,
