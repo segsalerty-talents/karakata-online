@@ -2,7 +2,7 @@
   <c-box position="relative">
     <navbar />
     <sidebar />
-      <c-box :ml="{ base: 'auto', md: '288px'}">
+      <c-box :ml="{ base: 'auto', lg: '288px'}">
         <router-view />
         <!-- <footer-admin /> -->
       </c-box>

@@ -9,6 +9,10 @@ const adminRoutes = [
       {
         path: '/admin/dashboard',
         component: () => import('@/views/admin/Index.vue')
+      },
+      {
+        path: '/admin/segmentation',
+        component: () => import('@/views/admin/Segmentation.vue')
       }
     ]
   },
