@@ -11,8 +11,8 @@ const userRoutes = [
       //   component: About
       // }
     ]
-  },
-  { path: '/:pathMatch(.*)*', redirect: '/' }
+  }
+  // { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 export default userRoutes

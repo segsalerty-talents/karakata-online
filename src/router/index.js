@@ -31,7 +31,9 @@ const commonRoutes = [
 const routes = [...commonRoutes, ...userRoutes, ...adminRoutes]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history',
+  linkExactActiveClass: 'active'
 })
 
 export default router
