@@ -20,6 +20,11 @@ const commonRoutes = [
     path: '/sign-in',
     name: 'sign-in',
     component: () => import('@/views/auth/SignIn.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/auth/Register.vue')
   }
 ]
 
