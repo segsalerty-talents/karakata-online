@@ -6,10 +6,14 @@ const adminRoutes = [
     redirect: '/admin/dashboard',
     component: () => import('@/layouts/Admin.vue'),
     children: [
-      // {
-      //   path: '/admin/dashboard',
-      //   component: Dashboard
-      // }
+      {
+        path: '/admin/dashboard',
+        component: () => import('@/views/admin/Index.vue')
+      },
+      {
+        path: '/admin/segmentation',
+        component: () => import('@/views/admin/Segmentation.vue')
+      }
     ]
   },
   { path: '/:pathMatch(.*)*', redirect: '/' }
