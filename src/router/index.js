@@ -17,17 +17,18 @@ const commonRoutes = [
     component: () => import('@/views/Home.vue')
   },
   {
+    path: '/sign-in',
+    name: 'sign-in',
+    component: () => import('@/views/auth/SignIn.vue')
+  },
+  {
     path: '/register',
     name: 'Register',
     component: () => import('@/views/auth/Register.vue')
   }
 ]
 
-const routes = [
-  ...commonRoutes,
-  ...userRoutes,
-  ...adminRoutes
-]
+const routes = [...commonRoutes, ...userRoutes, ...adminRoutes]
 
 const router = new VueRouter({
   routes
