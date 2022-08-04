@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
+import customTheme from './custom-theme.js'
 import router from './router/index'
 import store from './store'
 import './assets/css/tailwind.css'
