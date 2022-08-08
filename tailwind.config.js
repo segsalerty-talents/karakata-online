@@ -15,8 +15,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#00A4DB',
-        success: '#4BB543'
+        primary: '#E27253',
+        success: '#4BB543',
+        secondary: {
+          100: '#263238',
+          200: '#333333',
+          300: '#000000',
+          400: '#FFF8F6'
+        }
       },
       fontSize: {
         '10px': ['10px'],
