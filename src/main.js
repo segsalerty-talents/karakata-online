@@ -7,6 +7,7 @@ import store from './store'
 import './assets/css/tailwind.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Chakra, { CThemeProvider, CReset } from '@chakra-ui/vue'
+import VueCountryCode from 'vue-country-code-select'
 
 const customBreakpoints = {
   sm: '320px',
@@ -21,7 +22,7 @@ Vue.use(Chakra, {
   extendTheme: {
     breakpoints: customBreakpoints
   }
-})
+}).use(VueCountryCode)
 
 new Vue({
   router,
