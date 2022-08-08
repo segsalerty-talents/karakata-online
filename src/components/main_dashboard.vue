@@ -277,8 +277,8 @@ export default {
   .bolded {
     font-weight: 700;
   }
-  .transaction_details:first-child {
-    color: #FFFAF9;
+  #transaction_details:first-child {
+    color: #E27253;
   }
   /* .toggle_container {
     margin: 0px auto;
