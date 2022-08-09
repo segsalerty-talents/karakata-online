@@ -13,6 +13,10 @@ const adminRoutes = [
       {
         path: '/admin/segmentation',
         component: () => import('@/views/admin/Segmentation.vue')
+      },
+      {
+        path: '/admin/auto-config',
+        component: () => import('@/views/admin/AutomaticConfiguration.vue')
       }
     ]
   },
