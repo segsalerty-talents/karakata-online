@@ -162,7 +162,7 @@ export default {
           icon: require('@/assets/img/users.svg')
         },
         {
-          url: '/admin/automation-configuration',
+          url: '/admin/automatic-configuration',
           name: 'Automation configuration',
           icon: require('@/assets/img/note-icon.svg')
         },
