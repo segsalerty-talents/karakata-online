@@ -67,6 +67,20 @@ Start the server
   npm run nodemon
 ```
 
+### Building the app in Docker
+
+Build docker image
+
+```bash
+  docker-compose build
+```
+
+Start the server
+
+```bash
+  docker-compose up
+```
+
 ### Code Standards
 - Folder names should be in `camelCase` e.g `components, getStarted, auth`
 - Vue files should be in `PascalCase` e.g `Home.vue, TheFooter.vue, BaseInput.vue`
