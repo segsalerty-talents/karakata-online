@@ -12,14 +12,14 @@
           <c-button class="btn" :w="['104', '204px']" :fontSize="['10px', '20px']" py="20px">Set Up</c-button>
         </c-flex>
       </c-flex>
-      <c-text class="text-center text-primary mx-auto" fontWeight="700" :mt="['55px', '200px']" :fontSize="['36px', '48px']" lineHeight="66px" :w="['353px', '778px']" >Creating <br class="brnodisplay">Customer <br class="brnodisplay">Engagement <br class="brnobreak">and<br class="brnodisplay"> Sales Automation</c-text>
-      <c-text class="font-bold text-center text-seconadry-300 mx-auto" mt="50px" :fontSize="['14px', '22px']" :w="['336px', '786px']" lineHeight="29px" >Karakata provides AI-powered business tools to manage and engage customers and provide seamless business intelligence & leads.</c-text>
+      <c-text class="text-center text-primary mx-auto mobile-text sub-font" fontWeight="700" :mt="['55px', '200px']" :fontSize="['36px', '48px']" lineHeight="66px" :w="['353px', '778px']" >Creating <br class="brnodisplay">Customer <br class="brnodisplay">Engagement <br class="brnobreak">and<br class="brnodisplay"> Sales Automation</c-text>
+      <c-text class="font-bold text-center text-seconadry-300 mx-auto mobile-text" mt="50px" :fontSize="['14px', '22px']" :w="['336px', '786px']" lineHeight="29px" >Karakata provides AI-powered business tools to manage and engage customers and provide seamless business intelligence & leads.</c-text>
       <c-button class="justify-center mx-auto btn" py="40px" :mt="['30px', '100px']" :w="['205px', '300px']" :fontSize="['19px', '26px']">Set Up Now</c-button>
     </div>
 
     <!-- second viewport -->
     <c-box class="" :mt="['245px', '200px']">
-      <c-text class="second text-center text-secondary-100 mx-auto" :w="['330px', '696px']" fontWeight="800" :fontSize="['20px', '30px']" :lineHeight="['24px', '45px']" mb="100px">Karakata proffers seamless solution for your business through:</c-text>
+      <c-text class="second text-center text-secondary-100 mx-auto mobile-text" :w="['330px', '696px']" fontWeight="800" :fontSize="['20px', '30px']" :lineHeight="['24px', '45px']" mb="100px">Karakata proffers seamless solution for your business through:</c-text>
       <c-box class="mx-auto" :w="['90%', '90%', '80%', '70%']">
         <c-flex class="flex-col rowGap" mt="30px">
           <c-simple-grid :columns="[1, 2]" spacing="40px" class="columnGap">
@@ -73,7 +73,7 @@
     <!-- how to get started -->
     <c-box>
       <c-flex class="flex-col mx-auto" w="80%">
-        <c-flex class="basicColGap" :fontSize="['19px', '36px']" :w="['333px', '602px']" fontWeight="700" lineHeight="54px">
+        <c-flex class="basicColGap mobile-text sub-font-small" :fontSize="['19px', '36px']" :w="['333px', '602px']" fontWeight="700" lineHeight="54px">
           <c-text class="">How to get started with</c-text>
           <span class="text-primary" >Karakata</span>
         </c-flex>
@@ -218,6 +218,22 @@ export default {
 @media only screen and (max-width: 390px) {
   .small-text {
       font-size: 5px;
+  }
+}
+@media only screen and (max-width: 367.5px) {
+  .mobile-text {
+      width: 300px;
+  }
+  .sub-font {
+    font-size: 33px;
+  }
+  .sub-font-small {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .mobile-text {
+      width: 285px;
   }
 }
 </style>
