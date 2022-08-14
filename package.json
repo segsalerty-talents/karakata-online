@@ -1,10 +1,10 @@
 {
-  "name": "insura-fe",
+  "name": "karakata-fe",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "nodemon": "nodemon --watch 'src/**/*' --exec vue-cli-service serve --mode development",
-    "build:tailwind": "tailwind build src/assets/css/tailwind.css",
+    "build:tailwind": "postcss assets/css/tailwind.css -o dist/css/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -40,7 +40,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/test-utils": "^1.0.3",
-    "autoprefixer": "^9.8.8",
+    "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",
     "chakra-loader": "^1.0.3",
     "eslint": "^6.7.2",
@@ -50,8 +50,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "nodemon": "^2.0.7",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue-template-compiler": "^2.6.11"
   }
 }
