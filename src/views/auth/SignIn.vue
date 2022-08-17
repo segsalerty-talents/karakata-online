@@ -149,6 +149,8 @@ export default {
     submit () {
       if (this.v$.$invalid) {
         this.v$.$validate()
+      } else {
+        this.$router.push({ path: '/admin' })
       }
     }
   }
