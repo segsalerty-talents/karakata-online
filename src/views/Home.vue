@@ -24,7 +24,7 @@
             class="btn"
             :w="['104', '204px']"
             :fontSize="['10px', '20px']"
-            py="20px"
+            py="20px" @click="$router.push({name: 'Register'})"
             >Set Up</c-button
           >
         </c-flex>
@@ -54,7 +54,7 @@
         py="40px"
         :mt="['30px', '100px']"
         :w="['205px', '300px']"
-        :fontSize="['19px', '26px']"
+        :fontSize="['19px', '26px']" @click="$router.push({name: 'Register'})"
         >Set Up Now</c-button
       >
     </div>
@@ -165,7 +165,7 @@
             class="sm:items-start sm:justify-start lg:items-end lg:justify-end"
             :ml="['44px', '0px']"
           >
-            <c-button class="btn" mt="30px" :ml="['44px', '0px']" :w="['167px', '276px']">
+            <c-button class="btn" mt="30px" :ml="['44px', '0px']" :w="['167px', '276px']" @click="$router.push({name: 'Register'})">
               <c-text mr="6px" color="black" :fontSize="['14px', '24px']"
                 >Get Started</c-text
               >
