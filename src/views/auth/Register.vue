@@ -17,7 +17,7 @@
         Set up
       </c-heading>
       <c-heading as="h5" size="sm" color="#666666">
-        Let’s quickly set you your business on Karakata.
+        Let's quickly set you your business on Karakata.
       </c-heading>
     </c-stack>
     <c-flex :direction="{ base: 'column', sm: 'row' }" mt="8">
