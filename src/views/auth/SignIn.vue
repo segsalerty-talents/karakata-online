@@ -115,7 +115,7 @@
       <c-box
         :flex-basis="{ base: '100%', md: '50%' }"
         ml="10"
-        :display="{ base: 'none', sm: 'block' }"
+        :display="[ 'none', 'block' ]"
       >
         <img
           src="@/assets/img/login-illustration.svg"
