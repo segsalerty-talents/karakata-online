@@ -119,7 +119,7 @@
         border-radius="10px"
         bg="#E27253;"
         border="1px"
-        border-color="#E27253"
+        border-color="#E27253" @click="$router.push({name: 'sign-in'})"
       >
         Set up
       </c-button>
