@@ -1,6 +1,6 @@
 <template>
   <c-box width="100%" mr="1" mb="1">
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business name</c-form-label>
         <c-input
@@ -32,7 +32,7 @@
         </c-input-group>
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business email address</c-form-label>
         <c-input
@@ -54,7 +54,7 @@
         />
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business country</c-form-label>
         <c-select
@@ -118,7 +118,7 @@
         </c-select>
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999"
           >Business year of establishment</c-form-label
@@ -150,7 +150,7 @@
         </c-select>
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business kind</c-form-label>
         <c-input
@@ -161,7 +161,7 @@
           bg="#FFFAF9"
         />
       </c-form-control>
-      <c-flex w="100%" justify="start" ml="7.5" align="center">
+      <c-flex w="100%" :justify="{base: 'center', md: 'start'}" ml="7.5" align="center">
         <c-button
           @click="$emit('next-stage')"
           right-icon="arrow-forward"

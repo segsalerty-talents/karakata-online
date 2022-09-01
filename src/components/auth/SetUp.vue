@@ -1,6 +1,6 @@
 <template>
   <c-box width="100%" mr="1" mb="1">
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business sales channel</c-form-label>
         <c-select
@@ -28,7 +28,7 @@
         />
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999"
           >Business avg sales per month</c-form-label
@@ -72,7 +72,7 @@
         </c-select>
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Contact designation</c-form-label>
         <c-input
@@ -94,7 +94,7 @@
         />
       </c-form-control>
     </c-flex>
-    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
+    <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Contact telephone</c-form-label>
         <c-input-group>
@@ -115,7 +115,7 @@
           />
         </c-input-group>
       </c-form-control>
-      <c-flex w="100%" justify="start" ml="7.5" align="center">
+      <c-flex w="100%" :justify="{base: 'center', md: 'start', }" ml="7.5" align="center">
         <c-button
           :width="{ base: '100%', sm: 'auto' }"
           @click="$emit('prev-stage')"
