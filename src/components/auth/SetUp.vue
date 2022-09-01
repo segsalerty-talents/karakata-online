@@ -33,23 +33,43 @@
         <c-form-label for="fname" color="#999999"
           >Business avg sales per month</c-form-label
         >
-        <c-input
-          id="fname"
+        <c-select
+          placeholder="Select range"
+          color="#999999"
           border-radius="7"
           border-color="#E27253"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
-        />
+        >
+          <option>10,000 - 20,000</option>
+          <option>20,000 - 30,000</option>
+          <option>30,000 - 40,000</option>
+          <option>40,000 - 50,000</option>
+          <option>50,000 - 60,000</option>
+          <option>60,000 - 70,000</option>
+          <option>70,000 - 80,000</option>
+          <option>80,000 - 90,000</option>
+          <option>90,000 - 100,000</option>
+        </c-select>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#999999">Business employee count</c-form-label>
-        <c-input
-          id="fname"
+        <c-select
+          placeholder="Select range"
+          color="#999999"
           border-radius="7"
           border-color="#E27253"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
-        />
+        >
+          <option>5 - 10</option>
+          <option>10 - 15</option>
+          <option>15 - 20</option>
+          <option>20 - 25</option>
+          <option>25 - 30</option>
+          <option>30 - 40</option>
+          <option>40 - 50</option>
+        </c-select>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', sm: 'row' }">
@@ -106,6 +126,9 @@
           bg="#E27253;"
           border="1px"
           border-color="#E27253"
+          :_hover="{bg: '#E27253'}"
+          :_focus="{boxShadow: 'none'}"
+          :_active="{bg: '#E27253'}"
         >
           Previous
         </c-button>
@@ -119,6 +142,9 @@
         border-radius="10px"
         bg="#E27253;"
         border="1px"
+        :_hover="{bg: '#E27253'}"
+        :_focus="{boxShadow: 'none'}"
+        :_active="{bg: '#E27253'}"
         border-color="#E27253" @click="$router.push({name: 'sign-in'})"
       >
         Set up
