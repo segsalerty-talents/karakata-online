@@ -119,9 +119,12 @@
         size="md"
         color="#FFFFFF"
         border-radius="18px"
-        bg="#E27253;"
+        bg="#E27253"
         border="1px"
         border-color="#E27253"
+        :_hover="{bg: '#E27253'}"
+        :_focus="{boxShadow: 'none'}"
+        :_active="{bg: '#E27253'}"
       >
         Next
       </c-button>
