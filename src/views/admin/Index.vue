@@ -1,12 +1,16 @@
 <template>
   <div>
-    <p>Kehinde ODETOLA here</p>
+    <HomeDashboard />
   </div>
 </template>
 
 <script>
+import HomeDashboard from '@/components/main_dashboard'
+
 export default {
-  components: {},
+  components: {
+    HomeDashboard
+  },
   methods: {},
   computed: {}
 }
