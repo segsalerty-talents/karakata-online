@@ -11,6 +11,10 @@ const adminRoutes = [
         component: () => import('@/views/admin/Index.vue')
       },
       {
+        path: '/admin/sales',
+        component: () => import('@/views/admin/Sales.vue')
+      },
+      {
         path: '/admin/segmentation',
         component: () => import('@/views/admin/Segmentation.vue')
       },

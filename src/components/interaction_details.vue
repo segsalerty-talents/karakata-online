@@ -1,16 +1,6 @@
 <template>
 <div id="main" class="bg-black">
-  <c-box
-    class="details_box"
-    pos="absolute"
-    top="18%"
-    left="30%"
-    bg="white"
-    w="35%"
-    h="70%"
-    color="black"
-    zIndex="1700"
-  >
+  <div class="interaction-container">
   <c-flex
       direction="row"
       align="center"
@@ -55,7 +45,7 @@
         </div>
       </div>
     </c-flex>
-  </c-box>
+  </div>
 </div>
 </template>
 
@@ -73,13 +63,32 @@ export default {
 </script>
 
 <style scoped>
-.details_box::-webkit-scrollbar {
+#main {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.interaction-container {
+  width: 50%;
+  height: 60%;
+  background: white;
+  overflow-y: scroll;
+  border-radius: 7px;
+}
+.interaction-container::-webkit-scrollbar {
   width: 5px;
 }
-.details_box::-webkit-scrollbar-track {
+.interaction-container::-webkit-scrollbar-track {
   display: none;
 }
-.details_box::-webkit-scrollbar-thumb {
+.interaction-container::-webkit-scrollbar-thumb {
   background-color: grey;
   outline: 1px solid grey;
   border-radius: 60px;

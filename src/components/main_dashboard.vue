@@ -1,33 +1,22 @@
 <template>
-  <div v-if="showPage" id="main" class="body-width relative">
+  <div id="main" class="scale-up relative">
      <c-flex align="left" mt="4%" ml="5%" direction="column">
-            <c-flex w="80%" ml="4%" align="center" direction="row" justify="space-between">
-              <c-text fontSize="4xl" class="bolded" >{{ routerlink }}</c-text>
-              <c-input variant="outline" placeholder="Search.." w="35%" size="lg" />
-              <c-flex align="center" justify="space-around"  w="20%"  direction="row">
-                <c-image
-                  rounded="full"
-                  h="50px"
-                  w="50px"
-                  src="https://bit.ly/chakra-jonathan-bakebwa"
-                  alt="Jonathan Bakebwa"
-                  />
-                  <c-text>Hi {{ username }}</c-text>
-                  <c-icon name="triangle-down" />
-              </c-flex>
-            </c-flex>
           <!-- Main content of the page -->
-          <c-flex ml="-13%" direction="column" justify="center" align="center" mt="2%">
+          <c-flex ml="-13%" :direction="{base: 'column', md: 'row'}" justify="center" align="center" mt="1%">
             <div id="main-content">
-              <c-box>
-                <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.newCustomers }}</c-text> new customers added</c-button>
-              </c-box>
-              <c-box>
-                <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.confirmedSales }}</c-text> confirmed sales today</c-button>
-              </c-box>
-              <c-box>
-                <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.followupSales }}</c-text> followed up sales today</c-button>
-              </c-box>
+              <!-- <c-flex :direction="{base: 'column', md: 'row'}" justify="center" align="center"> -->
+                <c-box>
+                  <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.newCustomers }}</c-text> new customers added</c-button>
+                </c-box>
+                <br v-if="!showPage" />
+                <c-box>
+                  <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.confirmedSales }}</c-text> confirmed sales today</c-button>
+                </c-box>
+                <br v-if="!showPage" />
+                <c-box>
+                  <c-button px="9%" py="10%" justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" mt="1%"><c-text fontSize="4xl" mr="4%" class="primary_color">{{ salesinvoice.followupSales }}</c-text> followed up sales today</c-button>
+                </c-box>
+              <!-- </c-flex> -->
         <!-- Generate Invoice Section -->
               <c-box class="invoice-gen">
               <c-text
@@ -35,8 +24,8 @@
                 class="bolded"
               >Found a new lead?</c-text>
                 <c-flex
-                  direction="row"
-                  align="center"
+                  :direction="{base: 'column', md: 'row'}"
+                  :align="{base: 'flex-start', md: 'center'}"
                   justify="space-between"
                 >
               <!-- Number to send invoice -->
@@ -84,7 +73,7 @@
                   </c-box>
                 </c-flex>
                 <c-flex
-                  direction="row"
+                  :direction="{base: 'column', md: 'row'}"
                   align="flex-start"
                   justify="flex-start"
                 >
@@ -167,7 +156,7 @@
           </c-flex>
     </c-flex>
   </div>
-  <div v-else><c-text fontSize="2xl" py="10" px="4">oops, this page is not available on small screens, please switch to a bigger resolution</c-text></div>
+  <!-- <div v-else><c-text fontSize="2xl" py="10" px="4">oops, this page is not available on small screens, please switch to a bigger resolution</c-text></div> -->
 </template>
 
 <script>
@@ -308,5 +297,24 @@ export default {
     border: 1px solid #E27253 !important;
     background: #FFFAF9 !important;
     box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  @media screen and (max-width: 1400px) {
+    .scale-up {
+      transform: scale(0.90);
+    }
+  }
+  @media screen and (max-width: 1240px) {
+    .scale-up {
+      transform: scale(0.85);
+      margin-left: 2px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #main-content {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
+      margin-top: -9rem;
+    }
   }
 </style>
