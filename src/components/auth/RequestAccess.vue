@@ -2,20 +2,20 @@
   <c-box width="100%" mr="1" mb="1">
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business name</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business name</c-form-label>
         <c-input
           id="fname"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         />
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business telephone</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business telephone</c-form-label>
         <c-input-group>
           <c-input-left-addon
-            border-color="#E27253"
+            border-color="#999999"
             box-shadow="0 0 0 0 #E27253"
             bg="#FFFAF9"
             >+234</c-input-left-addon
@@ -25,7 +25,7 @@
             roundedLeft="0"
             placeholder="phone number"
             border-radius="7"
-            border-color="#E27253"
+            border-color="#999999"
             box-shadow="0 0 0 0 #E27253"
             bg="#FFFAF9"
           />
@@ -34,21 +34,21 @@
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business email address</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business email address</c-form-label>
         <c-input
           id="fname"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         />
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business address</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business address</c-form-label>
         <c-input
           id="fname"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         />
@@ -56,12 +56,12 @@
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business country</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business country</c-form-label>
         <c-select
           placeholder="Select a country"
           color="#999999"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         >
@@ -69,12 +69,12 @@
         </c-select>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business state</c-form-label>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business state</c-form-label>
         <c-select
           placeholder="Select a state"
           color="#999999"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         >
@@ -120,14 +120,13 @@
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999"
-          >Business year of establishment</c-form-label
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business year of establishment</c-form-label
         >
         <c-select
           placeholder="Select a year"
           color="#999999"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         >
@@ -135,14 +134,12 @@
         </c-select>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999"
-          >Business month of establishment</c-form-label
-        >
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business month of establishment</c-form-label>
         <c-select
           placeholder="Select a month"
           color="#999999"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         >
@@ -151,23 +148,23 @@
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
-      <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
-        <c-form-label for="fname" color="#999999">Business kind</c-form-label>
+      <!-- <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
+        <c-form-label for="fname" color="#393939" fontWeight="400">Business kind</c-form-label>
         <c-input
           id="fname"
           border-radius="7"
-          border-color="#E27253"
+          border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
         />
-      </c-form-control>
+      </c-form-control> -->
       <c-flex w="100%" :justify="{base: 'center', md: 'start'}" ml="7.5" align="center">
         <c-button
           @click="$emit('next-stage')"
-          right-icon="arrow-forward"
-          size="md"
+          w="100%"
+          size="lg"
           color="#FFFFFF"
-          border-radius="18px"
+          border-radius="8px"
           bg="#E27253"
           border="1px"
           border-color="#E27253"

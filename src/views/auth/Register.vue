@@ -5,19 +5,38 @@
   </header>
   <div class="container">
     <c-stack spacing="3" v-if="step === 1">
-      <c-heading as="h1" size="xl" color="#393939">
-        Request for access
+      <c-heading as="h1" size="xl" color="#C16951">
+        Set up
       </c-heading>
-      <c-heading as="h5" size="sm" color="#666666">
+      <c-heading as="h5" size="sm" color="#393939" fontWeight="400">
         Tell us a little about your business, let us process your access on Karakata.
       </c-heading>
     </c-stack>
     <c-stack spacing="3" v-if="step === 2">
-      <c-heading as="h1" size="xl" color="#393939">
+      <c-box>
+        <c-button
+          :width="{ base: '100%', sm: 'auto' }"
+          @click="step = 1"
+          left-icon="chevron-left"
+          size="sm"
+          fontWeight="400"
+          color="#E27253"
+          border-radius="18px"
+          bg="transparent"
+          border="1px"
+          border-color="#E27253"
+          :_hover="{bg: '#E27253', color: '#FFFFFF'}"
+          :_focus="{boxShadow: 'none'}"
+          :_active="{bg: '#E27253'}"
+        >
+          Previous
+        </c-button>
+      </c-box>
+      <c-heading as="h1" size="xl" color="#C16951">
         Set up
       </c-heading>
-      <c-heading as="h5" size="sm" color="#666666">
-        Let's quickly set you your business on Karakata.
+      <c-heading as="h5" size="sm" color="#393939" fontWeight="400">
+        Tell us a little about your business, inorder to process your access on Karakata.
       </c-heading>
     </c-stack>
     <c-flex :direction="{ base: 'column', sm: 'row' }" mt="8">
