@@ -1,22 +1,7 @@
 <template>
-  <div v-if="showPage" :class="{bg_trans: showInt}" class="body-width relative">
+  <div v-if="showPage" class="body-width relative">
     <ShowInteraction @close="closeIntBox" v-if="showInt" :SalesInt='currentInt' />
      <c-flex align="left" mt="4%" ml="5%" direction="column">
-            <c-flex w="80%" ml="4%" align="center" direction="row" justify="space-between">
-              <c-text fontSize="4xl" class="bolded" >{{ routerlink }}</c-text>
-              <c-input variant="outline" placeholder="Search.." w="35%" size="lg" />
-              <c-flex align="center" justify="space-around"  w="20%"  direction="row">
-                <c-image
-                  rounded="full"
-                  h="50px"
-                  w="50px"
-                  src="https://bit.ly/chakra-jonathan-bakebwa"
-                  alt="Jonathan Bakebwa"
-                  />
-                  <c-text>Hi {{ username }}</c-text>
-                  <c-icon name="triangle-down" />
-              </c-flex>
-            </c-flex>
           <div>
           <c-button justify="left" bg="white" border="1px" borderRadius="lg" borderColor="gray.200" ml="4%" mt="1%" py="2%" px="3%">
             <img :src="require('@/assets/img/filter.svg')" class="margin-right" />
@@ -80,8 +65,6 @@ export default {
       username: 'Glory',
       salesdata: salesdetail,
       showInt: false,
-      // I was thinking the page header should be from the URL because it won't be the same for every page
-      routerlink: 'Customers and Leads',
       currentInt: []
     }
   },
@@ -104,13 +87,6 @@ export default {
 }
 </script>
 <style>
-  .bg_trans {
-    position: absolute;
-    max-width: 1400px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2) !important;
-  }
   table {
     font-style: Lato;
     width: 85%;

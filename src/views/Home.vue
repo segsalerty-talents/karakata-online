@@ -13,12 +13,13 @@
           />
         </c-flex>
         <c-flex class="columnGap">
-          <c-text
+          <c-button
+            @click="$router.push({name: 'sign-in'})"
             class="cursor-pointer text-secondary-300"
             :fontSize="['13px', '26px']"
             fontWeight="600"
             :pt="['10px', '0px']"
-            >Log In</c-text
+            >Log In</c-button
           >
           <c-button
             class="btn"
