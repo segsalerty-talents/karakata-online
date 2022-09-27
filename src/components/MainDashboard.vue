@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="px-6 w-full">
+  <div id="" class="px-6 w-full overflow-x-hidden">
     <c-flex align="left" mt="4%" direction="column">
       <!-- Main content of the page -->
       <!-- The modals at the top goes here -->
@@ -65,21 +65,20 @@
                 direction="row"
                 justify="center"
                 align="center"
-                class="w-full"
+                class="w-full border border-solid"
               >
                 <vue-country-code
                   @onSelect="onSelect"
                   :enabledCountryCode="true"
                   :preferredCountries="['ng', 'us', 'gb']"
-                  class="border border-solid"
+                  class="border-none px-2"
                 >
                 </vue-country-code>
                 <c-input
                   placeholder="Enter the client No"
                   size="md"
-                  borderLeft="none"
                   roundedLeft="0"
-                  class="-ml-3 border border-solid w-full"
+                  class="-ml-3 border-r-2 border-solid w-full"
                 />
               </c-flex>
               <c-flex
@@ -129,12 +128,16 @@
                 <img :src="require('@/assets/img/invoiceTemplate.svg')" class="w-full" />
                 <c-flex w="100%" justify="space-around">
                   <c-button w="40%" class="primary_bg_color" color="white"
-                    >Send</c-button
+                    >
+                    <img
+                      :src="require('@/assets/img/homeDashboardIcons/sendicon.svg')"
+                      class="mr-4"
+                    />
+                    Send</c-button
                   >
                   <c-button
-                    bg="white"
+                    class="primary_color"
                     w="40%"
-                    class="number_border_color"
                     color="black"
                     >Clear</c-button
                   >
@@ -230,7 +233,7 @@ export default {
 </script>
 <style scoped>
 .primary_color {
-  color: #e27253;
+  color: #C16951;
 }
 .secondary_color {
   color: #999999;
