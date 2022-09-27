@@ -6,9 +6,9 @@
     <c-flex align="center" justify="between" my="8">
       <c-box :flex-basis="{ base: '100%', md: '50%' }">
         <c-box mb="8">
-          <c-text font-size="40px" font-weight="bold" mb="1">Login</c-text>
+          <c-text font-size="40px" font-weight="bold" mb="1" color="#C16951">Login</c-text>
           <c-text
-            color="#666666"
+            color="#393939"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
           >
             Welcome back, Login to continue
@@ -17,19 +17,18 @@
         <c-form-control mb="6">
           <c-form-label
             for="email_username"
-            color="#999999"
+            color="#393939"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
           >
             Email Address or username</c-form-label
           >
           <c-input
             v-model="name"
-            p="5"
+            p="6"
             id="email_username"
-            box-shadow="md"
-            background-color="#FFFAF9"
-            focus-border-color="#E27253"
-            border-color="#E27253"
+            background-color="#FFFFFF"
+            focus-border-color="#999999"
+            border-color="#999999"
             border-radius="10"
             mt="1"
             :_hover="{ boxShadow: 'sm' }"
@@ -48,27 +47,33 @@
         <c-form-control mb="6">
           <c-form-label
             for="password"
-            color="#999999"
+            color="#393939"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
           >
             Password</c-form-label
           >
-          <c-input
-            v-model="password"
-            p="5"
-            id="password"
-            type="password"
-            box-shadow="md"
-            background-color="#FFFAF9"
-            focus-border-color="#E27253"
-            border-color="#E27253"
-            border-radius="10"
-            mt="1"
-            :_hover="{ boxShadow: 'sm' }"
-            :_focus="{ background: '#ffffff' }"
-            @blur="v$.password.$touch()"
-            @focus="v$.password.$reset()"
-          />
+          <c-box position="relative">
+            <c-input
+              v-model="password"
+              p="6"
+              id="password"
+              :type="type"
+              background-color="#FFFFFF"
+              focus-border-color="#999999"
+              border-color="#999999"
+              border-radius="10"
+              mt="1"
+              :_hover="{ boxShadow: 'sm' }"
+              :_focus="{ background: '#ffffff' }"
+              @blur="v$.password.$touch()"
+              @focus="v$.password.$reset()"
+            />
+            <c-box @click="showPassword" cursor="pointer" position="absolute" top="50%" right="1em"
+            transform="translateY(-50%)">
+            <svg v-if="type === 'password'" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+            </c-box>
+          </c-box>
           <c-text
             mt="3"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
@@ -80,7 +85,7 @@
         <c-flex align="center" justify="space-between">
           <c-box>
             <c-checkbox
-              color="#999999"
+              color="#393939"
               :font-size="{ base: '14px', md: '16px', lg: '18px' }"
             >
               Remember me
@@ -88,6 +93,7 @@
           </c-box>
           <c-box
             color="#333333"
+            text-decoration="underline"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
           >
             Forgot Password?
@@ -95,22 +101,31 @@
         </c-flex>
         <c-button
           @click="submit"
-          bg="#E27253"
+          bg="#C16951"
           color="#ffffff"
           :font-size="{ base: '14px', md: '16px', lg: '18px' }"
-          mt="4em"
+          mt="1em"
           w="full"
           border-radius="10"
           border="1px"
-          border-color="#E27253"
-          :_hover="{ bg: '#ffffff', borderColor: '#E27253', color: '#E27253' }"
-          :_focus="{ bg: '#ffffff', borderColor: '#E27253', color: '#E27253' }"
+          border-color="#C16951"
+          :_hover="{ bg: '#ffffff', borderColor: '#C16951', color: '#C16951' }"
+          :_focus="{ bg: '#ffffff', borderColor: '#C16951', color: '#C16951' }"
           variant-color="blue"
           size="md"
-          p="5"
+          py="1.5em"
         >
-          Sign In
+          Login
         </c-button>
+        <c-box
+          mt="2em"
+          :display="[ 'flex', 'none' ]"
+          justify-content="center"
+          align-items="center"
+          :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+        >
+          <c-text color="#393939">Don't have an account?</c-text> <c-button bg="none" p="0" :font-size="{ base: '14px', md: '16px', lg: '18px' }" cursor="pointer" color="#C16951" :_hover="{bg: 'none'}" ml="10px" @click="$router.push({name: 'Register'})">Set Up</c-button>
+        </c-box>
       </c-box>
       <c-box
         :flex-basis="{ base: '100%', md: '50%' }"
@@ -121,6 +136,15 @@
           src="@/assets/img/login-illustration.svg"
           alt="login-illustration"
         />
+        <c-box
+          mt="2em"
+          display="flex"
+          justify-content="center"
+          align-items="center"
+          :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+        >
+          <c-text color="#393939">Don't have an account?</c-text> <c-button bg="none" p="0" :font-size="{ base: '14px', md: '16px', lg: '18px' }" cursor="pointer" color="#C16951" :_hover="{bg: 'none'}" ml="10px" @click="$router.push({name: 'Register'})">Set Up</c-button>
+        </c-box>
       </c-box>
     </c-flex>
   </c-box>
@@ -136,7 +160,8 @@ export default {
   data () {
     return {
       name: '',
-      password: ''
+      password: '',
+      type: 'password'
     }
   },
   validations () {
@@ -152,6 +177,9 @@ export default {
       } else {
         this.$router.push({ path: '/admin' })
       }
+    },
+    showPassword () {
+      this.type === 'password' ? this.type = 'text' : this.type = 'password'
     }
   }
 }
