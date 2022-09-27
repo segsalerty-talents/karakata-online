@@ -1,6 +1,7 @@
 export default [
   {
     id: 1,
+    invoice_number: 1011,
     dateandtime: 'August 19, 1975 23:15:30 GMT+11:00',
     number: '+2347068708613',
     total_purchase: '$1500',
@@ -100,6 +101,7 @@ export default [
   },
   {
     id: 2,
+    invoice_number: 1012,
     dateandtime: '2015-11-25T22:56:47Z',
     number: '+2347068708613',
     total_purchase: '$1500',
@@ -199,6 +201,7 @@ export default [
   },
   {
     id: 3,
+    invoice_number: 1013,
     dateandtime: '2005-11-25T22:56:47Z',
     number: '+2347068708613',
     total_purchase: '$1500',
@@ -298,6 +301,7 @@ export default [
   },
   {
     id: 4,
+    invoice_number: 1014,
     dateandtime: '2035-11-25T22:56:47Z',
     number: '+2348011808613',
     total_purchase: '$800',
@@ -397,6 +401,7 @@ export default [
   },
   {
     id: 5,
+    invoice_number: 1015,
     dateandtime: '1995-11-25T22:56:47Z',
     number: '+2347068708613',
     total_purchase: '$500',
@@ -496,6 +501,7 @@ export default [
   },
   {
     id: 6,
+    invoice_number: 1016,
     dateandtime: '2022-05-20T18:26:47Z',
     number: '+2347068708613',
     total_purchase: '$1500',
@@ -595,6 +601,7 @@ export default [
   },
   {
     id: 7,
+    invoice_number: 1017,
     dateandtime: '2019-02-05T14:06:47Z',
     number: '+2347068708613',
     total_purchase: '$1500',

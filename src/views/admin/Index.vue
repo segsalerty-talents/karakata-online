@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HomeDashboard from '@/components/main_dashboard'
+import HomeDashboard from '@/components/MainDashboard'
 
 export default {
   components: {

@@ -1,11 +1,9 @@
 <template>
-  <div class="scale-up">
-    <SalesDashboard />
-  </div>
+  <SalesDashboard />
 </template>
 
 <script>
-import SalesDashboard from '@/components/admin_dashboard'
+import SalesDashboard from '@/components/SalesDashboard'
 
 export default {
   components: {
