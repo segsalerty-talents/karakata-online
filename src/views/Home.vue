@@ -15,7 +15,7 @@
         <c-flex class="columnGap">
           <c-button
             @click="$router.push({name: 'sign-in'})"
-            class="cursor-pointer text-secondary-300"
+            class="cursor-pointer text-secondary-300 bg-none"
             :fontSize="['13px', '26px']"
             fontWeight="600"
             :pt="['10px', '0px']"
@@ -31,9 +31,9 @@
         </c-flex>
       </c-flex>
       <c-text
-        class="text-center text-primary mx-auto mobile-text sub-font"
+        class="mx-auto text-center text-primary mobile-text sub-font"
         fontWeight="700"
-        :mt="['55px', '200px']"
+        :mt="['55px', '150px']"
         :fontSize="['36px', '48px']"
         lineHeight="66px"
         :w="['353px', '778px']"
@@ -42,7 +42,7 @@
         Sales Automation</c-text
       >
       <c-text
-        class="font-bold text-center text-seconadry-300 mx-auto mobile-text"
+        class="mx-auto font-bold text-center text-seconadry-300 mobile-text"
         mt="50px"
         :fontSize="['14px', '22px']"
         :w="['336px', '786px']"
@@ -63,7 +63,7 @@
     <!-- second viewport -->
     <c-box class="" :mt="['245px', '200px']">
       <c-text
-        class="second text-center text-secondary-100 mx-auto mobile-text"
+        class="mx-auto text-center second text-secondary-100 mobile-text"
         :w="['330px', '696px']"
         fontWeight="800"
         :fontSize="['20px', '30px']"
@@ -75,7 +75,7 @@
         <c-flex class="flex-col rowGap" mt="30px">
           <c-simple-grid :columns="[1, 2]" spacing="40px" class="columnGap">
             <c-image class="mx-auto" :src="embedded" :w="['291px', '415px']" />
-            <c-flex class="flex-col box mx-auto">
+            <c-flex class="flex-col mx-auto box">
               <c-text
                 class="text-secondary-300"
                 :fontSize="['20px', '36px']"
@@ -91,7 +91,7 @@
             </c-flex>
           </c-simple-grid>
           <c-simple-grid :columns="[1, 2]" spacing="40px" class="columnGap">
-            <c-flex class="flex-col box mx-auto" :order="['2', '1']">
+            <c-flex class="flex-col mx-auto box" :order="['2', '1']">
               <c-text
                 class="text-secondary-300"
                 :fontSize="['20px', '36px']"
@@ -111,7 +111,7 @@
           </c-simple-grid>
           <c-simple-grid :columns="[1, 2]" spacing="40px" class="columnGap">
             <c-image class="mx-auto" :src="comprehensive" :w="['291px', '415px']" />
-            <c-flex class="flex-col box mx-auto">
+            <c-flex class="flex-col mx-auto box">
               <c-text
                 class="text-secondary-300"
                 :fontSize="['20px', '36px']"
@@ -143,7 +143,7 @@
         <c-image class="mx-auto" :src="getStarted" :w="['291px', '415px']" />
         <c-flex class="flex-col">
           <c-text
-            class="second custom-text flex text-left text-secondary-300 mx-auto"
+            class="flex mx-auto text-left second custom-text text-secondary-300"
             :display="['flex', 'none']"
             :mt="['100px', '0px']"
             :fontSize="['13px', '30px']"
@@ -153,7 +153,7 @@
             experience growth, bumper sales and <br />consistency in Business.</c-text
           >
           <c-text
-            class="flex text-left lg:text-right text-secondary-300 mx-auto"
+            class="flex mx-auto text-left lg:text-right text-secondary-300"
             :display="['none', 'flex']"
             :mt="['100px', '0px']"
             :fontSize="['13px', '30px']"
@@ -305,7 +305,6 @@ export default {
   left: 0;
   right: 0;
   opacity: 0.7;
-  background-image: url('../assets/img/landing.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -352,6 +351,9 @@ export default {
 @media screen and (max-width: 500px) {
   .box {
     width: 288px;
+  }
+  .bg {
+    background-image: url('../assets/img/landing.png');
   }
 }
 @media screen and (max-width: 767px) and (min-width: 501px) {
