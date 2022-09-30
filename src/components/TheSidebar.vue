@@ -41,7 +41,8 @@
         url="/admin/automatic-configuration"
         label="Automation Configuration">
         <template>
-          <UsersIcon
+          <NoteIcon
+            @hover="color = '#C16951'"
             :color="$route.path === '/admin/automatic-configuration' ? '#C16951':'#FFF' "
           />
         </template>
@@ -50,7 +51,7 @@
         url="/admin/segmentation"
         label="Segmentation">
         <template>
-          <UsersIcon
+          <NoteIcon
             :color="$route.path === '/admin/segmentation' ? '#C16951':'#FFF' "
           />
         </template>
@@ -90,38 +91,16 @@
         w="100%"
         h="100%"
       >
-        <c-list-item
-          v-for="(item, index) in bottomLink"
-          :key="index"
-          :display="{ base: 'flex', lg: 'block' }"
-          justifyContent="center"
-          alignItems="center"
-          :bg="$route.path === item.url ? '#FFBC9F' : ''"
-          :_hover="{ bg: '#FFBC9F' }"
-          h="100%"
-          :borderRadius="{ base: '0px', lg: '10px' }"
-          w="100%"
-          :p="{ base: 0, lg: '15px 0px 15px 15px' }"
-        >
-          <c-link as="router-link" :to="item.url" :_hover="{ decoration: 'none' }">
-            <c-image
-              :src="item.icon"
-              w="20px"
-              :mr="{ base: 0, lg: '15px' }"
-              display="inline-block"
-            />
-            <c-box
-              :display="{ base: 'none', lg: 'inline-block' }"
-              as="span"
-              fontSize="18px"
-              color="#fff"
-              verticalAlign="middle"
-              :fontWeight="$route.path === item.url ? 'bold' : ''"
-            >
-              {{ item.name }}
-            </c-box>
-          </c-link>
-        </c-list-item>
+        <SidebarNav2 url="/admin/settngs" label="Settings">
+          <template>
+            <SettingsIcon />
+          </template>
+        </SidebarNav2>
+        <SidebarNav2 url="/admin/support" label="Support">
+          <template>
+            <HelpIcon />
+          </template>
+        </SidebarNav2>
       </c-list>
     </c-box>
   </c-box>
@@ -129,12 +108,20 @@
 
 <script>
 import UsersIcon from '@/components/svg/Users'
+import NoteIcon from '@/components/svg/NoteIcon'
+import SettingsIcon from '@/components/svg/SettingsIcon'
+import HelpIcon from '@/components/svg/HelpIcon'
 import SidebarNav from '@/components/SidebarNav'
+import SidebarNav2 from '@/components/SidebarNav2'
 export default {
   name: 'sidebar',
   components: {
     UsersIcon,
-    SidebarNav
+    NoteIcon,
+    SettingsIcon,
+    HelpIcon,
+    SidebarNav,
+    SidebarNav2
   },
   data () {
     return {
