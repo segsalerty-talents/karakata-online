@@ -6,7 +6,6 @@
         cursor="pointer"
         :bg="$route.path === url ? '#FFF' : ''"
         :_hover="{ bg: '#FFF', color: '#C16951' }"
-        :color="$route.path === url ? '#C16951':'#fff'"
         h="100%"
         :borderRadius="{ base: '0px', lg: '10px 0px 0px 10px' }"
         w="100%"
@@ -58,3 +57,12 @@ export default {
   }
 }
 </script>
+
+<style>
+li {
+  color: #FFF;
+}
+li a.active {
+  color: #C16951;
+}
+</style>
