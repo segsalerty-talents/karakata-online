@@ -3,6 +3,7 @@
         :display="{ base: 'flex', lg: 'block' }"
         justifyContent="center"
         alignItems="center"
+        cursor="pointer"
         :bg="$route.path === url ? '#FFF' : ''"
         :_hover="{ bg: '#FFF', color: '#C16951' }"
         :color="$route.path === url ? '#C16951':'#fff'"
@@ -13,6 +14,7 @@
       >
         <c-link
           as="router-link"
+          display="block"
           :to="url"
           :_hover="{ decoration: 'none'}"
           :_focus="{ boxShadow: 'none' }"

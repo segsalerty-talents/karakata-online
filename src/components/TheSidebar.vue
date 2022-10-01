@@ -18,42 +18,35 @@
       :w="{ base: '100%' }"
       :h="{ base: '100%', lg: 'auto' }"
     >
-    <c-list styleType="none" :display="{ base: 'flex', lg: 'block' }" w="100%" h="100%">
+    <c-list
+      styleType="none" :display="{ base: 'flex', lg: 'block' }" w="100%" h="100%">
       <SidebarNav
         url="/admin/dashboard"
-        label="Dashboard">
+        label="Dashboard"
+      >
         <template>
-          <UsersIcon
-            :color="$route.path === '/admin/dashboard' ? '#C16951':'#FFF' "
-          />
+          <UsersIcon/>
         </template>
       </SidebarNav>
       <SidebarNav
         url="/admin/sales"
         label="Sales">
         <template>
-          <UsersIcon
-            :color="$route.path === '/admin/sales' ? '#C16951':'#FFF' "
-          />
+          <UsersIcon/>
         </template>
       </SidebarNav>
       <SidebarNav
         url="/admin/automatic-configuration"
         label="Automation Configuration">
         <template>
-          <NoteIcon
-            @hover="color = '#C16951'"
-            :color="$route.path === '/admin/automatic-configuration' ? '#C16951':'#FFF' "
-          />
+          <NoteIcon/>
         </template>
       </SidebarNav>
       <SidebarNav
         url="/admin/segmentation"
         label="Segmentation">
         <template>
-          <NoteIcon
-            :color="$route.path === '/admin/segmentation' ? '#C16951':'#FFF' "
-          />
+          <NoteIcon/>
         </template>
       </SidebarNav>
         <c-list-item
@@ -125,6 +118,7 @@ export default {
   },
   data () {
     return {
+      color: '#FFF',
       topLink: [
         {
           url: '/admin/dashboard',
@@ -160,6 +154,14 @@ export default {
         }
       ],
       showMenu: false
+    }
+  },
+  created () {
+    // this.color = this.route.path =
+  },
+  methods: {
+    switchColor () {
+      this.color = '#C16951'
     }
   }
 }
