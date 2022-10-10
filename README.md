@@ -39,7 +39,7 @@ Useful Links:
 - [Production URL](https://karakata.online/)
 
 - [Tailwind Cheatsheet](https://tailwindcomponents.com/cheatsheet/)
-- [Chakra Docs](https://chakra-ui.com/docs/getting-started)
+- [Chakra Docs](https://vue.chakra-ui.com/getting-started)
 
 
 ###  Building the app locally

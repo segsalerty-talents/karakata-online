@@ -3,8 +3,27 @@
     w="100%"
     pl="4"
     pr="4">
+    <c-stack>
+      <c-text fontSize="4xl">Segmentation</c-text>
+    </c-stack>
+    <c-box mt="8">
+      <c-button-group spacing="4">
+        <c-button
+          color="#393939"
+          bg="transparent"
+          border=" 1px solid #9E9E9E"
+          borderRadius="20"
+          fontWeight="400">
+          <i style="padding-right: 6px;"><SettingIcon /></i>
+          Segments
+        </c-button>
+        <c-button variant-color="blue" variant="outline">
+          Button
+        </c-button>
+      </c-button-group>
+    </c-box>
     <c-flex :direction="{base: 'column', md: 'row'}">
-      <c-box width="100%">
+      <!-- <c-box width="100%">
         <c-box
           pb="4"
           border-bottom="1px solid rgba(130, 134, 154, 0.51)">
@@ -25,8 +44,8 @@
               >+234 9047738232</c-checkbox>
           </c-checkbox-group>
         </c-box>
-      </c-box>
-      <c-box width="100%" :mt="{base: '20px', md: 0}">
+      </c-box> -->
+      <!-- <c-box width="100%" :mt="{base: '20px', md: 0}">
       <c-box
         pb="4"
         border-bottom="1px solid rgba(130, 134, 154, 0.51)">
@@ -60,13 +79,17 @@
           </c-button>
           </c-box>
         </c-box>
-      </c-box>
+      </c-box> -->
     </c-flex>
   </c-box>
 </template>
 
 <script>
+import SettingIcon from '@/components/svg/SettingIcon'
 export default {
+  components: {
+    SettingIcon
+  },
   data () {
     return {
       checkedItems: [false, false]
