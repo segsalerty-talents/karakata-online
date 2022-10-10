@@ -3,10 +3,10 @@
     :display="{ base: 'flex', lg: 'block' }"
     justifyContent="center"
     alignItems="center"
-    :bg="$route.path === url ? '#FFBC9F' : ''"
-    :_hover="{ bg: '#FFBC9F' }"
+    :bg="$route.path === url ? '#FFF' : ''"
+    :_hover="{ bg: '#FFF', color: '#C16951' }"
     h="100%"
-    :borderRadius="{ base: '0px', lg: '10px' }"
+    :borderRadius="{ base: '0px', lg: '10px 0px 0px 10px' }"
     w="100%"
     :p="{ base: 0, lg: '15px 0px 15px 15px' }"
   >
@@ -29,7 +29,6 @@
         :display="{ base: 'none', lg: 'inline-block' }"
         as="span"
         fontSize="18px"
-        color="#fff"
         verticalAlign="middle"
         :fontWeight="$route.path === url ? 'bold' : ''"
       >
@@ -53,3 +52,12 @@ export default {
   }
 }
 </script>
+
+<style>
+li {
+  color: #FFF;
+}
+li a.active {
+  color: #C16951;
+}
+</style>

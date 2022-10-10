@@ -25,7 +25,7 @@
         label="Dashboard"
       >
         <template>
-          <UsersIcon/>
+          <DashboardIcon/>
         </template>
       </SidebarNav>
       <SidebarNav
@@ -70,7 +70,7 @@
       right="0"
       :bottom="{ base: '60px', lg: 'auto' }"
       bg="#E27253"
-      :pr="{ base: '0px', lg: '15px' }"
+      :pr="{ base: '0px' }"
       :pl="{ base: '0px', lg: '15px' }"
       :mt="{ base: '0px', lg: '50px' }"
       :w="{ base: '60px', lg: '100%' }"
@@ -84,7 +84,7 @@
         w="100%"
         h="100%"
       >
-        <SidebarNav2 url="/admin/settngs" label="Settings">
+        <SidebarNav2 url="/admin/settings" label="Settings">
           <template>
             <SettingsIcon />
           </template>
@@ -104,6 +104,7 @@ import UsersIcon from '@/components/svg/Users'
 import NoteIcon from '@/components/svg/NoteIcon'
 import SettingsIcon from '@/components/svg/SettingsIcon'
 import HelpIcon from '@/components/svg/HelpIcon'
+import DashboardIcon from '@/components/svg/DashboardIcon'
 import SidebarNav from '@/components/SidebarNav'
 import SidebarNav2 from '@/components/SidebarNav2'
 export default {
@@ -113,6 +114,7 @@ export default {
     NoteIcon,
     SettingsIcon,
     HelpIcon,
+    DashboardIcon,
     SidebarNav,
     SidebarNav2
   },
