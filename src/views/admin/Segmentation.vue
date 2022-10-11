@@ -112,6 +112,7 @@
         <c-modal-close-button />
         <c-modal-body>
           <c-flex justify="space-between">
+            <c-box width="50%" mr="2">
             <c-button
               bg="transparent"
               borderRadius="15"
@@ -119,12 +120,14 @@
               size="md"
               fontWeight="400"
               fontSize="14px"
-              width="40%"
+              width="100%"
               :_hover="{bg: 'transparent'}"
             >
               <i><CalenderIcon /></i>
               From
             </c-button>
+            </c-box>
+            <c-box width="50%" ml="2">
             <c-button
               bg="transparent"
               borderRadius="15"
@@ -132,12 +135,13 @@
               size="md"
               fontWeight="400"
               fontSize="14px"
-              width="40%"
+              width="100%"
               :_hover="{bg: 'transparent'}"
             >
                <i><CalenderIcon /></i>
               To
             </c-button>
+            </c-box>
           </c-flex>
           <c-box mt="4">
             <c-text fontSize="md" fontWeight="bold">Amount</c-text>
