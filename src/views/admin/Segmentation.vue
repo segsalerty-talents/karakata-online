@@ -35,7 +35,8 @@
           p="5"
           borderRadius="5"
           height="500px"
-          overflow="auto">
+          overflow="auto"
+          width="50%">
           <c-checkbox-group variant-color="blue" :default-value="['naruto', 'kakashi']">
             <c-checkbox
               :is-checked="allChecked"
@@ -56,29 +57,44 @@
         :mt="{base: '20px', md: 0}">
       <c-box mt="5"
         :ml="{base: 0 , md: 5}"
-        :width="{base: '100%', md: '50%'}"
+        :width="{base: '100%', md: '70%'}"
         border="1px solid #9E9E9E"
         p="5"
         borderRadius="5">
           <c-flex :max-width="{base: '100%', md: '80%', xl: '100%'}" justify="space-between">
-            <c-heading as="h4" size="sm">Input Message</c-heading>
-            <c-link>view template</c-link>
+            <c-heading as="h4" size="sm" fontWeight="400">Message</c-heading>
           </c-flex>
           <c-box :max-width="{base: '100%', md: '80%', xl: '100%'}" mt="5px">
-           <c-textarea is-invalid placeholder="Here is a sample placeholder" />
-           <c-button
-              size="lg"
-              color="#FFFFFF"
-              border-radius="16px"
-              bg="#E27253;"
-              border="1px"
-              border-color="#E27253"
-              mt="4"
-              width="100%"
-              :hover="{bg: '#E27253', opacity: .8}"
-            >
-            Send message
-          </c-button>
+           <c-textarea is-invalid placeholder="Enter message" />
+           <c-flex>
+            <c-button
+                size="md"
+                color="#FFFFFF"
+                border-radius="16px"
+                bg="#E27253;"
+                border="1px"
+                border-color="#E27253"
+                mt="4"
+                width="80%"
+                :_hover="{bg: '#E27253', opacity: .8}"
+                mr="2"
+              >
+                Send
+              </c-button>
+              <c-button
+                size="md"
+                color="#FFFFFF"
+                border-radius="16px"
+                bg="#E27253;"
+                border="1px"
+                border-color="#E27253"
+                mt="4"
+                width="20%"
+                :_hover="{bg: '#E27253', opacity: .8}"
+              >
+                <c-icon name="close" size="12px" />
+              </c-button>
+            </c-flex>
           </c-box>
         </c-box>
       </c-box>
