@@ -9,6 +9,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_name"
         />
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
@@ -28,6 +29,7 @@
             border-color="#999999"
             box-shadow="0 0 0 0 #E27253"
             bg="#FFFAF9"
+            v-model="form.business_telephone"
           />
         </c-input-group>
       </c-form-control>
@@ -41,6 +43,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_email"
         />
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
@@ -51,6 +54,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_address"
         />
       </c-form-control>
     </c-flex>
@@ -64,8 +68,9 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_country"
         >
-          <option value="grilled">Nigeria</option>
+          <option>Nigeria</option>
         </c-select>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
@@ -77,6 +82,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_state"
         >
           <option value="Abia">Abia</option>
           <option value="Adamawa">Adamawa</option>
@@ -129,6 +135,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_stated_sing_year"
         >
           <option v-for="(num, index) in 32" :value="2023 - num" :key="index">{{ 2023 - num }}</option>
         </c-select>
@@ -142,6 +149,7 @@
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
+          v-model="form.business_started_since_month"
         >
           <option v-for="(month, index) in months" :value="month" :key="index">{{ month }}</option>
         </c-select>
@@ -160,7 +168,7 @@
       </c-form-control> -->
       <c-flex w="100%" :justify="{base: 'center', md: 'start'}" ml="7.5" align="center">
         <c-button
-          @click="$emit('next-stage')"
+          @click="$emit('next-stage',form)"
           w="100%"
           size="lg"
           color="#FFFFFF"
@@ -183,7 +191,10 @@
 export default {
   data () {
     return {
-      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      form: {
+        business_telephone: '+234'
+      }
     }
   }
 }

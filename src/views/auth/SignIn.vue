@@ -23,7 +23,7 @@
             Email Address or username</c-form-label
           >
           <c-input
-            v-model="name"
+            v-model="email"
             p="6"
             id="email_username"
             background-color="#FFFFFF"
@@ -33,14 +33,14 @@
             mt="1"
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
-            @blur="v$.name.$touch()"
-            @focus="v$.name.$reset()"
+            @blur="v$.email.$touch()"
+            @focus="v$.email.$reset()"
           />
           <c-text
             mt="2"
             :font-size="{ base: '14px', md: '16px', lg: '18px' }"
             color="red.400"
-            v-if="v$.name.$error"
+            v-if="v$.email.$error"
             >Email or username is required</c-text
           >
         </c-form-control>
@@ -153,20 +153,21 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import Api from '../../api/api'
 
 export default {
   name: 'signIn',
   setup: () => ({ v$: useVuelidate() }),
   data () {
     return {
-      name: '',
+      email: '',
       password: '',
       type: 'password'
     }
   },
   validations () {
     return {
-      name: { required },
+      email: { required },
       password: { required }
     }
   },
@@ -175,7 +176,12 @@ export default {
       if (this.v$.$invalid) {
         this.v$.$validate()
       } else {
-        this.$router.push({ path: '/admin' })
+        const form = {
+          email: this.email,
+          password: this.password
+        }
+        Api.post('/account/auth/login', form)
+        // this.$router.push({ path: '/admin' })
       }
     },
     showPassword () {

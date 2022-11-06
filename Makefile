@@ -12,3 +12,6 @@ build:
 
 ps:
 	docker-compose ps
+
+bash:
+	docker-compose exec vue /bin/sh
