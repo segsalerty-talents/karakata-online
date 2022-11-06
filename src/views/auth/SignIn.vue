@@ -5,6 +5,14 @@
     </c-box>
     <c-flex align="center" justify="between" my="8">
       <c-box :flex-basis="{ base: '100%', md: '50%' }">
+        <c-box mb="3">
+        <c-alert v-show="error" status="error">
+          <c-alert-icon />
+          <!-- <c-alert-title :mr="2">Your browser is outdated!</c-alert-title> -->
+          <c-alert-description>{{ error }}</c-alert-description>
+          <c-close-button @click="error = '' " position="absolute" right="8px" top="8px" />
+        </c-alert>
+        </c-box>
         <c-box mb="8">
           <c-text font-size="40px" font-weight="bold" mb="1" color="#C16951">Login</c-text>
           <c-text
@@ -162,7 +170,8 @@ export default {
     return {
       email: '',
       password: '',
-      type: 'password'
+      type: 'password',
+      error: ''
     }
   },
   validations () {
@@ -180,8 +189,11 @@ export default {
           email: this.email,
           password: this.password
         }
-        Api.post('/account/auth/login', form)
-        // this.$router.push({ path: '/admin' })
+        Api.post('/account/auth/login', form).then((res) => {
+          this.$router.push({ path: '/admin' })
+        }).catch((err) => {
+          this.error = err?.response?.data?.error?.details
+        })
       }
     },
     showPassword () {
