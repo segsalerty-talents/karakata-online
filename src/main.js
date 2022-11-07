@@ -8,6 +8,15 @@ import './assets/css/tailwind.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Chakra, { CThemeProvider, CReset } from '@chakra-ui/vue'
 import VueCountryCode from 'vue-country-code-select'
+// import Toast, { POSITION } from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
+
+const options = {
+  timeout: 100000
+  // position: POSITION.TOP_LEFT
+}
+
+// Vue.use(Toast, options)
 
 const customBreakpoints = {
   sm: '320px',
