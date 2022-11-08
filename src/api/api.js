@@ -4,7 +4,7 @@ import axios from 'axios'
 // import { GET_ITEM } from '../helpers/localstorage'
 // import { auth } from '../store'
 
-const baseURL = 'https://139-162-185-97.ip.linodeusercontent.com/api' // process.env.VUE_APP_API
+const baseURL = 'https://139-162-185-97.ip.linodeusercontent.com/api' // 'https://api.karakata.co' // process.env.VUE_APP_API
 
 const httpClient = axios.create({
   baseURL,

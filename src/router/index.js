@@ -25,6 +25,11 @@ const commonRoutes = [
     path: '/register',
     name: 'Register',
     component: () => import('@/views/auth/Register.vue')
+  },
+  {
+    path: '/set-password',
+    name: 'SetPassword',
+    component: () => import('@/views/auth/SetPassword.vue')
   }
 ]
 
