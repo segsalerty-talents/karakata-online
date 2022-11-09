@@ -14,16 +14,15 @@
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business telephone</c-form-label>
-        <c-input-group>
+        <!--<c-input-group>
           <c-input-left-addon
             border-color="#999999"
             box-shadow="0 0 0 0 #E27253"
             bg="#FFFAF9"
             >+234</c-input-left-addon
-          >
+          > -->
           <c-input
             type="tel"
-            roundedLeft="0"
             placeholder="phone number"
             border-radius="7"
             border-color="#999999"
@@ -31,7 +30,7 @@
             bg="#FFFAF9"
             v-model="form.business_telephone"
           />
-        </c-input-group>
+        <!-- </c-input-group> -->
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">

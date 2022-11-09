@@ -85,6 +85,9 @@ export default {
       isDisabled: false
     }
   },
+  created () {
+    document.title = 'Register | Karakata'
+  },
   methods: {
     nextStage (data) {
       this.step++
@@ -103,12 +106,33 @@ export default {
       }
       console.log(form)
       Api.post('/account/auth/signup', form).then((res) => {
-        this.isSuccess = true
-        this.isDisabled = false
+        console.log(res)
+        this.$router.push({
+          path: '/set-password',
+          query: {
+            business_id: res?.data?.data?.business_id
+          }
+        })
+        // this.isDisabled = false
       }).catch((err) => {
         this.isDisabled = false
         console.log(err?.response?.data?.error?.details)
-        this.error = err?.response?.data?.error?.details
+        // this.error = err?.response?.data?.error?.validation_error
+        const error = err?.response?.data?.error?.validation_error
+        if (error) {
+          const errors = Object.values(error)
+          for (const item of errors) {
+            this.$toast({
+              title: 'Error',
+              description: item,
+              status: 'warning',
+              duration: 5000,
+              position: 'top-right',
+              variant: 'top-accent',
+              isClosable: false
+            })
+          }
+        }
       })
     }
   }
