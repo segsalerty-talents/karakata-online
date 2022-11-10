@@ -1,7 +1,9 @@
 <template>
   <c-box :w="['90%', null, '900px', '1100px']" mx="auto" my="8">
     <c-box>
-      <img src="@/assets/img/logo.png" alt="logo" />
+      <c-link as="router-link" to="/" class="inline">
+        <c-image :src="require('@/assets/img/logo.png')" alt="logo" w="118px" />
+      </c-link>
     </c-box>
     <c-flex align="center" justify="between" my="8">
       <c-box :flex-basis="{ base: '100%', md: '50%' }">
@@ -13,18 +15,19 @@
           <c-close-button @click="error = '' " position="absolute" right="8px" top="8px" />
         </c-alert> -->
         </c-box>
-        <c-box mb="8">
+        <c-box mb="5">
           <c-text font-size="40px" font-weight="bold" mb="1" color="#C16951">Login</c-text>
           <c-heading as="h5" size="sm" color="#393939" fontWeight="400">
-            Welcome back, Login to continue
+            Welcome back, login to continue
           </c-heading>
         </c-box>
         <c-form-control mb="6">
           <c-form-label
             for="email_username"
             color="#393939" fontWeight="400"
+            lineHeight="16px"
           >
-            Email Address or Username</c-form-label
+            Email Address</c-form-label
           >
           <c-input
             v-model="email"
@@ -45,13 +48,14 @@
             fontWeight="400"
             color="red.400"
             v-if="v$.email.$error"
-            >Email or username is required</c-text
+            >Email is required</c-text
           >
         </c-form-control>
         <c-form-control mb="6">
           <c-form-label
             for="password"
             color="#393939" fontWeight="400"
+            lineHeight="16px"
           >
             Password</c-form-label
           >
@@ -85,21 +89,25 @@
             >Password is required</c-text
           >
         </c-form-control>
-        <c-flex align="center" justify="space-between">
-          <c-box>
+        <c-flex align="center" justify="end">
+          <!-- <c-box>
             <c-checkbox
               color="#393939"
               fontWeight="400"
             >
               Remember me
             </c-checkbox>
-          </c-box>
+          </c-box> -->
           <c-box
             color="#333333"
             text-decoration="underline"
             fontWeight="400"
+            fontSize="14px"
+            lineHeight="14px"
           >
-            Forgot Password?
+            <c-link as="router-link" to="forgot-password">
+              Forgot Password?
+            </c-link>
           </c-box>
         </c-flex>
         <c-button
@@ -165,7 +173,7 @@ export default {
       email: '',
       password: '',
       type: 'password',
-      error: ''
+      error: {}
     }
   },
   validations () {
@@ -189,9 +197,10 @@ export default {
         Api.post('/account/auth/login', form).then((res) => {
           this.$router.push({ path: '/admin' })
         }).catch(err => {
+          const message = err?.response?.data?.error?.details
           this.$toast({
             title: 'Error',
-            description: err?.response?.data?.error?.details,
+            description: message.charAt(0).toUpperCase() + message.slice(1),
             status: 'warning',
             duration: 5000,
             position: 'top-right',
