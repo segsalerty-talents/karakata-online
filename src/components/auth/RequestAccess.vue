@@ -62,7 +62,7 @@
         <c-form-label for="fname" color="#393939" fontWeight="400">Business country</c-form-label>
         <c-select
           placeholder="Select a country"
-          color="#999999"
+          color="#393939"
           border-radius="7"
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
@@ -76,9 +76,9 @@
         <c-form-label for="fname" color="#393939" fontWeight="400">Business state</c-form-label>
         <c-select
           placeholder="Select a state"
-          color="#999999"
+          color="#393939"
           border-radius="7"
-          border-color="#999999"
+          border-color="#393939"
           box-shadow="0 0 0 0 #E27253"
           bg="#FFFAF9"
           v-model="form.business_state"
@@ -129,7 +129,7 @@
         >
         <c-select
           placeholder="Select a year"
-          color="#999999"
+          color="#393939"
           border-radius="7"
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
@@ -143,7 +143,7 @@
         <c-form-label for="fname" color="#393939" fontWeight="400">Business month of establishment</c-form-label>
         <c-select
           placeholder="Select a month"
-          color="#999999"
+          color="#393939"
           border-radius="7"
           border-color="#999999"
           box-shadow="0 0 0 0 #E27253"
@@ -187,6 +187,7 @@
 </template>
 
 <script>
+import Api from '../../api/api'
 export default {
   data () {
     return {
@@ -194,6 +195,15 @@ export default {
       form: {
         business_telephone: '+234'
       }
+    }
+  },
+  methods: {
+    validateData () {
+      Api.post('/verify/account/auth/signup', this.form).then(res => {
+        console.log(res.data)
+      }).catch(err => {
+        console.log(err.data)
+      })
     }
   }
 }
