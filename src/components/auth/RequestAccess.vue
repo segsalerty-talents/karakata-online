@@ -11,6 +11,7 @@
           bg="#FFFAF9"
           v-model="form.business_name"
         />
+        <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business telephone</c-form-label>
@@ -30,6 +31,7 @@
             bg="#FFFAF9"
             v-model="form.business_telephone"
           />
+          <c-box as="small" color="red.500">This field is required</c-box>
         <!-- </c-input-group> -->
       </c-form-control>
     </c-flex>
@@ -44,6 +46,7 @@
           bg="#FFFAF9"
           v-model="form.business_email"
         />
+        <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business address</c-form-label>
@@ -55,6 +58,7 @@
           bg="#FFFAF9"
           v-model="form.business_address"
         />
+        <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
@@ -71,6 +75,7 @@
         >
           <option>Nigeria</option>
         </c-select>
+         <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business state</c-form-label>
@@ -121,6 +126,7 @@
           <option value="Yobe">Yobe</option>
           <option value="Zamfara">Zamfara</option>
         </c-select>
+        <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
@@ -138,6 +144,7 @@
         >
           <option v-for="(num, index) in 32" :value="2023 - num" :key="index">{{ 2023 - num }}</option>
         </c-select>
+         <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business month of establishment</c-form-label>
@@ -152,6 +159,7 @@
         >
           <option v-for="(month, index) in months" :value="month" :key="index">{{ month }}</option>
         </c-select>
+         <c-box as="small" color="red.500">This field is required</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
@@ -167,7 +175,7 @@
       </c-form-control> -->
       <c-flex w="100%" :justify="{base: 'center', md: 'start'}" ml="7.5" align="center">
         <c-button
-          @click="$emit('next-stage',form)"
+          @click="validateData"
           w="100%"
           size="lg"
           color="#FFFFFF"
@@ -194,16 +202,17 @@ export default {
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       form: {
         business_telephone: '+234'
-      }
+      },
+      error: {}
     }
   },
   methods: {
-    validateData () {
-      Api.post('/verify/account/auth/signup', this.form).then(res => {
-        console.log(res.data)
-      }).catch(err => {
-        console.log(err.data)
-      })
+    async validateData () {
+      try {
+        await Api.post('/verify/account/auth/signup', this.form)
+      } catch (err) {
+        this.error = err?.response?.data?.error?.validation_error
+      }
     }
   }
 }
