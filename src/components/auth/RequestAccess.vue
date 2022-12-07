@@ -11,7 +11,7 @@
           bg="#FFFAF9"
           v-model="form.business_name"
         />
-        <c-box as="small" color="red.500">This field is required</c-box>
+        <c-box v-show="error.business_name" as="small" color="red.500">{{ error.business_name | capitalize }}</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business telephone</c-form-label>
