@@ -176,6 +176,7 @@
       <c-flex w="100%" :justify="{base: 'center', md: 'start'}" ml="7.5" align="center">
         <c-button
           @click="validateData"
+          :disabled="!formValid || !isEnabled"
           w="100%"
           size="lg"
           color="#FFFFFF"
@@ -187,7 +188,7 @@
           :_focus="{boxShadow: 'none'}"
           :_active="{bg: '#E27253'}"
         >
-          Next
+          {{ isEnabled === true ? 'Next':'Please wait...' }}
         </c-button>
       </c-flex>
     </c-flex>
@@ -197,21 +198,43 @@
 <script>
 import Api from '../../api/api'
 export default {
+  props: ['formData'],
   data () {
     return {
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      form: {
-        business_telephone: '+234'
-      },
-      error: {}
+      form: {},
+      error: {},
+      isEnabled: true
+    }
+  },
+  created () {
+    this.form = this.formData
+  },
+  computed: {
+    formValid () {
+      return Object.keys(this.form).every((value) => {
+        return this.form[value]
+      })
     }
   },
   methods: {
     async validateData () {
       try {
+        this.isEnabled = false
+        this.error = {}
         await Api.post('/verify/account/auth/signup', this.form)
       } catch (err) {
-        this.error = err?.response?.data?.error?.validation_error
+        this.isEnabled = true
+        const errors = err?.response?.data?.error?.validation_error
+        // Filter array of Objects by key
+        const keys = ['business_telephone', 'business_name', 'business_email', 'business_address', 'business_country', 'business_state', 'business_stated_sing_year', 'business_started_since_month']
+        this.error = Object.keys(errors)
+          .filter(key => keys.includes(key))
+          .reduce((obj, key) => {
+            obj[key] = errors[key]
+            return obj
+          }, {})
+        if (Object.keys(this.error).length === 0) return this.$emit('next-stage', this.form)
       }
     }
   }

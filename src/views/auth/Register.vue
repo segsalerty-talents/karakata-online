@@ -55,8 +55,8 @@
     </c-stack>
     <c-flex :direction="{ base: 'column', sm: 'row' }" mt="8">
       <c-box width="100%">
-        <request-access v-if="step === 1" @next-stage="nextStage"/>
-        <set-up v-if="step === 2" @prev-stage="prevStage" @create-account="register" :isDisabled="isDisabled" />
+        <request-access v-if="step === 1" :formData="formData" @next-stage="nextStage"/>
+        <set-up v-if="step === 2" :formData="formData" @prev-stage="prevStage" />
       </c-box>
       <c-box :display="[ 'none', 'block' ]" width="100%" mt="-40">
         <c-image :src="require('@/assets/img/Mobilelogin-amico1.svg')" />
@@ -72,6 +72,7 @@ import SetUp from '@/components/auth/SetUp'
 import Api from '../../api/api'
 
 export default {
+  name: 'Register',
   components: {
     RequestAccess,
     SetUp
@@ -79,7 +80,16 @@ export default {
   data () {
     return {
       step: 1,
-      formData: {},
+      formData: {
+        business_telephone: '+234',
+        business_name: '',
+        business_email: '',
+        business_address: '',
+        business_country: '',
+        business_state: '',
+        business_stated_sing_year: '',
+        business_started_since_month: ''
+      },
       error: '',
       isSuccess: false,
       isDisabled: false
@@ -97,44 +107,44 @@ export default {
     },
     prevStage () {
       this.step--
-    },
-    register (data) {
-      this.isDisabled = true
-      const form = {
-        ...this.formData,
-        ...data
-      }
-      console.log(form)
-      Api.post('/account/auth/signup', form).then((res) => {
-        console.log(res)
-        this.$router.push({
-          path: '/set-password',
-          query: {
-            business_id: res?.data?.data?.business_id
-          }
-        })
-        // this.isDisabled = false
-      }).catch((err) => {
-        this.isDisabled = false
-        console.log(err?.response?.data?.error?.details)
-        // this.error = err?.response?.data?.error?.validation_error
-        const error = err?.response?.data?.error?.validation_error
-        if (error) {
-          const errors = Object.values(error)
-          for (const item of errors) {
-            this.$toast({
-              title: 'Error',
-              description: item,
-              status: 'warning',
-              duration: 5000,
-              position: 'top-right',
-              variant: 'top-accent',
-              isClosable: false
-            })
-          }
-        }
-      })
     }
+    // register (data) {
+    //   this.isDisabled = true
+    //   const form = {
+    //     ...this.formData,
+    //     ...data
+    //   }
+    //   console.log(form)
+    //   Api.post('/account/auth/signup', form).then((res) => {
+    //     console.log(res)
+    //     this.$router.push({
+    //       path: '/set-password',
+    //       query: {
+    //         business_id: res?.data?.data?.business_id
+    //       }
+    //     })
+    //     // this.isDisabled = false
+    //   }).catch((err) => {
+    //     this.isDisabled = false
+    //     console.log(err?.response?.data?.error?.details)
+    //     // this.error = err?.response?.data?.error?.validation_error
+    //     const error = err?.response?.data?.error?.validation_error
+    //     if (error) {
+    //       const errors = Object.values(error)
+    //       for (const item of errors) {
+    //         this.$toast({
+    //           title: 'Error',
+    //           description: item,
+    //           status: 'warning',
+    //           duration: 5000,
+    //           position: 'top-right',
+    //           variant: 'top-accent',
+    //           isClosable: false
+    //         })
+    //       }
+    //     }
+    //   })
+    // }
   }
 }
 </script>
