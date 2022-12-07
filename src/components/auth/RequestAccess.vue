@@ -31,7 +31,7 @@
             bg="#FFFAF9"
             v-model="form.business_telephone"
           />
-          <c-box as="small" color="red.500">This field is required</c-box>
+          <c-box v-show="error.business_telephone" as="small" color="red.500">{{ error.business_telephone | capitalize }}</c-box>
         <!-- </c-input-group> -->
       </c-form-control>
     </c-flex>
@@ -46,7 +46,7 @@
           bg="#FFFAF9"
           v-model="form.business_email"
         />
-        <c-box as="small" color="red.500">This field is required</c-box>
+        <c-box v-show="error.business_email" as="small" color="red.500">{{ error.business_email | capitalize }}</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business address</c-form-label>
@@ -58,7 +58,7 @@
           bg="#FFFAF9"
           v-model="form.business_address"
         />
-        <c-box as="small" color="red.500">This field is required</c-box>
+        <c-box v-show="error.business_address" as="small" color="red.500">{{ error.business_address | capitalize }}</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
@@ -75,7 +75,7 @@
         >
           <option>Nigeria</option>
         </c-select>
-         <c-box as="small" color="red.500">This field is required</c-box>
+         <c-box v-show="error.business_country" as="small" color="red.500">{{ error.business_country | capitalize }}</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business state</c-form-label>
@@ -126,7 +126,7 @@
           <option value="Yobe">Yobe</option>
           <option value="Zamfara">Zamfara</option>
         </c-select>
-        <c-box as="small" color="red.500">This field is required</c-box>
+        <c-box v-show="error.business_state" as="small" color="red.500">{{ error.business_state | capitalize }}</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
@@ -144,7 +144,7 @@
         >
           <option v-for="(num, index) in 32" :value="2023 - num" :key="index">{{ 2023 - num }}</option>
         </c-select>
-         <c-box as="small" color="red.500">This field is required</c-box>
+         <c-box v-show="error.business_stated_sing_year" as="small" color="red.500">{{ error.business_stated_sing_year | capitalize }}</c-box>
       </c-form-control>
       <c-form-control w="100%" mr="7.5" ml="7.5" pb="5" is-required>
         <c-form-label for="fname" color="#393939" fontWeight="400">Business month of establishment</c-form-label>
@@ -159,7 +159,7 @@
         >
           <option v-for="(month, index) in months" :value="month" :key="index">{{ month }}</option>
         </c-select>
-         <c-box as="small" color="red.500">This field is required</c-box>
+         <c-box v-show="error.business_started_since_month" as="small" color="red.500">{{ error.business_started_since_month | capitalize }}</c-box>
       </c-form-control>
     </c-flex>
     <c-flex w="100%" mr="-7.5" ml="-7.5" :direction="{ base: 'column', md: 'row' }">
