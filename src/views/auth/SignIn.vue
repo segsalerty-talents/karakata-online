@@ -164,6 +164,7 @@
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import Api from '../../api/api'
+import { SET_ITEM } from '../../helpers/localstorage'
 
 export default {
   name: 'signIn',
@@ -195,6 +196,11 @@ export default {
           password: this.password
         }
         Api.post('/account/auth/login', form).then((res) => {
+          const store = {
+            token: res?.data?.data?.token?.access_token,
+            business_id: res?.data?.data?.business_id
+          }
+          SET_ITEM('karakata_token', store, 3600)
           this.$router.push({ path: '/admin' })
         }).catch(err => {
           const message = err?.response?.data?.error?.details
