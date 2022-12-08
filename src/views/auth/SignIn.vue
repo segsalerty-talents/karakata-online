@@ -200,7 +200,7 @@ export default {
             token: res?.data?.data?.token?.access_token,
             business_id: res?.data?.data?.business_id
           }
-          SET_ITEM('karakata_token', store, 3600)
+          SET_ITEM('karakata_data', store, 3600)
           this.$router.push({ path: '/admin' })
         }).catch(err => {
           const message = err?.response?.data?.error?.details

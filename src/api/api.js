@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import Nprogress from 'nprogress'
 // import router from '../router'
-// import { GET_ITEM } from '../helpers/localstorage'
+import { GET_ITEM } from '../helpers/localstorage'
 // import { auth } from '../store'
 
 const baseURL = 'https://api.karakata.co/api' // process.env.VUE_APP_API
@@ -16,12 +16,15 @@ const httpClient = axios.create({
 
 httpClient.interceptors.request.use(
   async (config) => {
-    // const local = await GET_ITEM('t40_bo')
+    const local = await GET_ITEM('karakata_data')
     // const token = await GET_ITEM('t40_bo_token')
     // if (token) {
     //   config.headers.Authorization = `Bearer ${token}`
     // }
     // console.log(config.url)
+    if (config.method === 'get') {
+      config.params.business_id = local.business_id
+    }
     return config
   },
   (error) => Promise.reject(error)
