@@ -14,6 +14,15 @@
         </c-flex>
         <c-flex class="columnGap">
           <c-button
+            v-show="isAuthenticated"
+            @click="$router.push({name: 'dashboard'})"
+            class="cursor-pointer text-secondary-300 bg-none"
+            :fontSize="['13px', '26px']"
+            fontWeight="600"
+            :pt="['10px', '0px']"
+            >Dashboard</c-button>
+          <c-button
+            v-show="!isAuthenticated"
             @click="$router.push({name: 'sign-in'})"
             class="cursor-pointer text-secondary-300 bg-none"
             :fontSize="['13px', '26px']"
@@ -22,6 +31,7 @@
             >Log In</c-button
           >
           <c-button
+            v-show="!isAuthenticated"
             class="btn"
             :w="['104', '204px']"
             :fontSize="['10px', '20px']"
@@ -280,6 +290,7 @@
 </template>
 
 <script>
+import { GET_ITEM } from '../helpers/localstorage'
 export default {
   data () {
     return {
@@ -291,6 +302,11 @@ export default {
       getStarted: require('@/assets/img/get_started.png'),
       started: require('@/assets/img/started.png'),
       startedMobile: require('@/assets/img/started_mobile.png')
+    }
+  },
+  computed: {
+    isAuthenticated () {
+      return !!GET_ITEM('karakata_data')
     }
   }
 }
