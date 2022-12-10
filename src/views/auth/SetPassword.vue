@@ -234,7 +234,16 @@ export default {
         business_id: this.$route.query.business_id
       }
       Api.post('/account/auth/set-password', form).then((res) => {
-        this.$router.push({ path: '/admin' })
+        this.$toast({
+          title: 'Success',
+          description: 'Account created successfully',
+          status: 'success',
+          duration: 5000,
+          position: 'top-right',
+          variant: 'top-accent',
+          isClosable: false
+        })
+        this.$router.push({ path: '/sign-in' })
       }).catch(err => {
         const error = err?.response?.data?.error?.validation_error
         if (error) {
