@@ -1,10 +1,10 @@
-FROM node:12-alpine
+FROM node:16.17.0
 
 WORKDIR /usr/app
 
 COPY package.json ./
-COPY package-lock.json ./
-RUN npm install
+COPY yarn.lock ./
+RUN yarn install
 
 COPY . .
 
@@ -12,4 +12,4 @@ USER node
 
 EXPOSE 8000
 
-CMD ["npm","run","build"]
+CMD ["yarn","build"]

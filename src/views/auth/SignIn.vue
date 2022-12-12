@@ -1,67 +1,74 @@
 <template>
   <c-box :w="['90%', null, '900px', '1100px']" mx="auto" my="8">
     <c-box>
-      <img src="@/assets/img/logo.png" alt="logo" />
+      <c-link as="router-link" to="/" class="inline">
+        <c-image :src="require('@/assets/img/logo.png')" alt="logo" w="118px" />
+      </c-link>
     </c-box>
     <c-flex align="center" justify="between" my="8">
       <c-box :flex-basis="{ base: '100%', md: '50%' }">
-        <c-box mb="8">
+        <c-box mb="3">
+        <!-- <c-alert v-show="error" status="error">
+          <c-alert-icon />
+          <c-alert-title :mr="2">Your browser is outdated!</c-alert-title>
+          <c-alert-description>{{ error }}</c-alert-description>
+          <c-close-button @click="error = '' " position="absolute" right="8px" top="8px" />
+        </c-alert> -->
+        </c-box>
+        <c-box mb="5">
           <c-text font-size="40px" font-weight="bold" mb="1" color="#C16951">Login</c-text>
-          <c-text
-            color="#393939"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
-          >
-            Welcome back, Login to continue
-          </c-text>
+          <c-heading as="h5" size="sm" color="#393939" fontWeight="400">
+            Welcome back, login to continue
+          </c-heading>
         </c-box>
         <c-form-control mb="6">
           <c-form-label
             for="email_username"
-            color="#393939"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            color="#393939" fontWeight="400"
+            lineHeight="16px"
           >
-            Email Address or username</c-form-label
+            Email Address</c-form-label
           >
           <c-input
-            v-model="name"
-            p="6"
+            v-model="email"
             id="email_username"
-            background-color="#FFFFFF"
-            focus-border-color="#999999"
+            bg="#FFFAF9"
+            box-shadow="0 0 0 0 #E27253"
             border-color="#999999"
-            border-radius="10"
+            border-radius="7"
+            fontSize="14px"
             mt="1"
             :_hover="{ boxShadow: 'sm' }"
             :_focus="{ background: '#ffffff' }"
-            @blur="v$.name.$touch()"
-            @focus="v$.name.$reset()"
+            @blur="v$.email.$touch()"
+            @focus="v$.email.$reset()"
           />
           <c-text
             mt="2"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            fontWeight="400"
             color="red.400"
-            v-if="v$.name.$error"
-            >Email or username is required</c-text
+            v-if="v$.email.$error"
+            >Email is required</c-text
           >
         </c-form-control>
         <c-form-control mb="6">
           <c-form-label
             for="password"
-            color="#393939"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            color="#393939" fontWeight="400"
+            lineHeight="16px"
           >
             Password</c-form-label
           >
           <c-box position="relative">
             <c-input
               v-model="password"
-              p="6"
               id="password"
               :type="type"
-              background-color="#FFFFFF"
-              focus-border-color="#999999"
+              bg="#FFFAF9"
+              box-shadow="0 0 0 0 #E27253"
               border-color="#999999"
-              border-radius="10"
+              border-radius="7"
+              fontSize="14px"
               mt="1"
               :_hover="{ boxShadow: 'sm' }"
               :_focus="{ background: '#ffffff' }"
@@ -70,49 +77,52 @@
             />
             <c-box @click="showPassword" cursor="pointer" position="absolute" top="50%" right="1em"
             transform="translateY(-50%)">
-            <svg v-if="type === 'password'" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+            <svg v-if="type === 'password'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
             </c-box>
           </c-box>
           <c-text
             mt="3"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            fontWeight="400"
             color="red.400"
             v-if="v$.password.$error"
             >Password is required</c-text
           >
         </c-form-control>
-        <c-flex align="center" justify="space-between">
-          <c-box>
+        <c-flex align="center" justify="end">
+          <!-- <c-box>
             <c-checkbox
               color="#393939"
-              :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+              fontWeight="400"
             >
               Remember me
             </c-checkbox>
-          </c-box>
+          </c-box> -->
           <c-box
             color="#333333"
             text-decoration="underline"
-            :font-size="{ base: '14px', md: '16px', lg: '18px' }"
+            fontWeight="400"
+            fontSize="14px"
+            lineHeight="14px"
           >
-            Forgot Password?
+            <c-link as="router-link" to="forgot-password">
+              Forgot Password?
+            </c-link>
           </c-box>
         </c-flex>
         <c-button
           @click="submit"
-          bg="#C16951"
+          bg="#E27253"
           color="#ffffff"
-          :font-size="{ base: '14px', md: '16px', lg: '18px' }"
           mt="1em"
           w="full"
-          border-radius="10"
+          border-radius="8px"
           border="1px"
-          border-color="#C16951"
-          :_hover="{ bg: '#ffffff', borderColor: '#C16951', color: '#C16951' }"
-          :_focus="{ bg: '#ffffff', borderColor: '#C16951', color: '#C16951' }"
+          border-color="#E27253"
+          :_hover="{ opacity: 0.8, borderColor: '#C16951', color: '#fff' }"
+          :_focus="{ opacity: 0.8, borderColor: '#C16951', color: '#fff' }"
           variant-color="blue"
-          size="md"
+          size="lg"
           py="1.5em"
         >
           Login
@@ -153,29 +163,57 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import Api from '../../api/api'
+import { SET_ITEM } from '../../helpers/localstorage'
 
 export default {
   name: 'signIn',
   setup: () => ({ v$: useVuelidate() }),
   data () {
     return {
-      name: '',
+      email: '',
       password: '',
-      type: 'password'
+      type: 'password',
+      error: {}
     }
   },
   validations () {
     return {
-      name: { required },
+      email: { required },
       password: { required }
     }
+  },
+  created () {
+    document.title = 'Sign-In | Karakata'
   },
   methods: {
     submit () {
       if (this.v$.$invalid) {
         this.v$.$validate()
       } else {
-        this.$router.push({ path: '/admin' })
+        const form = {
+          email: this.email,
+          password: this.password
+        }
+        Api.post('/account/auth/login', form).then((res) => {
+          const store = {
+            token: res?.data?.data?.token?.access_token,
+            business_id: res?.data?.data?.business_id
+          }
+          SET_ITEM('karakata_data', store, 3600)
+          this.$router.push({ path: '/admin' })
+        }).catch(err => {
+          const message = err?.response?.data?.error?.details
+          this.$toast({
+            title: 'Error',
+            description: message.charAt(0).toUpperCase() + message.slice(1),
+            status: 'warning',
+            duration: 5000,
+            position: 'top-right',
+            variant: 'top-accent',
+            isClosable: false
+          })
+        })
       }
     },
     showPassword () {

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div id="" class="px-6 w-full overflow-x-hidden">
     <c-flex align="left" mt="4%" direction="column">
       <!-- Main content of the page -->
@@ -198,6 +198,7 @@
 
 <script>
 import salesInvoice from '@/data/sales_invoice'
+import Api from '../api/api'
 import { CText, CGrid, CGridItem } from '@chakra-ui/vue'
 // import ShowInteraction from '@/components/interaction_details'
 export default {
@@ -219,6 +220,10 @@ export default {
       countryCode: Object
     }
   },
+  created () {
+    document.title = 'Dashboard | Karakata'
+    this.fetchInvoice()
+  },
   methods: {
     onSelect ({ name, iso2, dialCode }) {
       this.countryCode = {
@@ -227,6 +232,13 @@ export default {
         dialCode
       }
       console.log(this.countryCode)
+    },
+    async fetchInvoice () {
+      try {
+        Api.get('/invoice/get')
+      } catch (error) {
+        //
+      }
     }
   }
 }

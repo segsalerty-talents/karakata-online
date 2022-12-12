@@ -13,6 +13,5 @@ services:
        - ./:/usr/app
     user: node
     command:
-      - npm
-      - run
+      - yarn
       - nodemon
