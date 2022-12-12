@@ -12,46 +12,43 @@
       <c-image :src="require('@/assets/img/Logo2.svg')" w="120px" />
     </c-flex>
     <c-box
-      :pr="{ base: '0px', lg: '15px' }"
+      :pr="{ base: '0px' }"
       :pl="{ base: '0px', lg: '15px' }"
       :mt="{ base: '0px', lg: '80px' }"
       :w="{ base: '100%' }"
       :h="{ base: '100%', lg: 'auto' }"
     >
-      <c-list styleType="none" :display="{ base: 'flex', lg: 'block' }" w="100%" h="100%">
-        <template v-for="(item, index) in topLink">
-          <c-list-item
-            :display="{ base: 'flex', lg: 'block' }"
-            justifyContent="center"
-            alignItems="center"
-            :bg="$route.path === item.url ? '#FFBC9F' : ''"
-            :_hover="{ bg: '#FFBC9F' }"
-            h="100%"
-            :borderRadius="{ base: '0px', lg: '10px' }"
-            :key="index"
-            w="100%"
-            :p="{ base: 0, lg: '15px 0px 15px 15px' }"
-          >
-            <c-link as="router-link" :to="item.url" :_hover="{ decoration: 'none' }">
-              <c-image
-                :src="item.icon"
-                w="20px"
-                :mr="{ base: 0, lg: '15px' }"
-                display="inline-block"
-              />
-              <c-box
-                :display="{ base: 'none', lg: 'inline-block' }"
-                as="span"
-                fontSize="18px"
-                color="#fff"
-                verticalAlign="middle"
-                :fontWeight="$route.path === item.url ? 'medium' : ''"
-              >
-                {{ item.name }}
-              </c-box>
-            </c-link>
-          </c-list-item>
+    <c-list
+      styleType="none" :display="{ base: 'flex', lg: 'block' }" w="100%" h="100%">
+      <SidebarNav
+        url="/admin/dashboard"
+        label="Dashboard"
+      >
+        <template>
+          <DashboardIcon/>
         </template>
+      </SidebarNav>
+      <SidebarNav
+        url="/admin/sales"
+        label="Sales">
+        <template>
+          <UsersIcon/>
+        </template>
+      </SidebarNav>
+      <SidebarNav
+        url="/admin/automatic-configuration"
+        label="Automation Configuration">
+        <template>
+          <NoteIcon/>
+        </template>
+      </SidebarNav>
+      <SidebarNav
+        url="/admin/segmentation"
+        label="Segmentation">
+        <template>
+          <NoteIcon/>
+        </template>
+      </SidebarNav>
         <c-list-item
           :display="{ base: 'flex', lg: 'none' }"
           w="100%"
@@ -73,7 +70,7 @@
       right="0"
       :bottom="{ base: '60px', lg: 'auto' }"
       bg="#E27253"
-      :pr="{ base: '0px', lg: '15px' }"
+      :pr="{ base: '0px' }"
       :pl="{ base: '0px', lg: '15px' }"
       :mt="{ base: '0px', lg: '50px' }"
       :w="{ base: '60px', lg: '100%' }"
@@ -87,49 +84,43 @@
         w="100%"
         h="100%"
       >
-        <template v-for="(item, index) in bottomLink">
-          <c-list-item
-            :display="{ base: 'flex', lg: 'block' }"
-            justifyContent="center"
-            alignItems="center"
-            :bg="$route.path === item.url ? '#FFBC9F' : ''"
-            :_hover="{ bg: '#FFBC9F' }"
-            h="100%"
-            :borderRadius="{ base: '0px', lg: '10px' }"
-            :key="index"
-            w="100%"
-            :p="{ base: 0, lg: '15px 0px 15px 15px' }"
-          >
-            <c-link as="router-link" :to="item.url" :_hover="{ decoration: 'none' }">
-              <c-image
-                :src="item.icon"
-                w="20px"
-                :mr="{ base: 0, lg: '15px' }"
-                display="inline-block"
-              />
-              <c-box
-                :display="{ base: 'none', lg: 'inline-block' }"
-                as="span"
-                fontSize="18px"
-                color="#fff"
-                verticalAlign="middle"
-                :fontWeight="$route.path === item.url ? 'bold' : ''"
-              >
-                {{ item.name }}
-              </c-box>
-            </c-link>
-          </c-list-item>
-        </template>
+        <SidebarNav2 url="/admin/settings" label="Settings">
+          <template>
+            <SettingsIcon />
+          </template>
+        </SidebarNav2>
+        <SidebarNav2 url="/admin/support" label="Support">
+          <template>
+            <HelpIcon />
+          </template>
+        </SidebarNav2>
       </c-list>
     </c-box>
   </c-box>
 </template>
 
 <script>
+import UsersIcon from '@/components/svg/Users'
+import NoteIcon from '@/components/svg/NoteIcon'
+import SettingsIcon from '@/components/svg/SettingsIcon'
+import HelpIcon from '@/components/svg/HelpIcon'
+import DashboardIcon from '@/components/svg/DashboardIcon'
+import SidebarNav from '@/components/SidebarNav'
+import SidebarNav2 from '@/components/SidebarNav2'
 export default {
   name: 'sidebar',
+  components: {
+    UsersIcon,
+    NoteIcon,
+    SettingsIcon,
+    HelpIcon,
+    DashboardIcon,
+    SidebarNav,
+    SidebarNav2
+  },
   data () {
     return {
+      color: '#FFF',
       topLink: [
         {
           url: '/admin/dashboard',
@@ -165,6 +156,14 @@ export default {
         }
       ],
       showMenu: false
+    }
+  },
+  created () {
+    // this.color = this.route.path =
+  },
+  methods: {
+    switchColor () {
+      this.color = '#C16951'
     }
   }
 }

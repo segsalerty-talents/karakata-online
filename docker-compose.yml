@@ -12,4 +12,7 @@ services:
     volumes:
        - ./:/usr/app
     user: node
-    entrypoint: /bin/sh '/usr/app/entrypoint.sh'
+    command:
+      - npm
+      - run
+      - nodemon
